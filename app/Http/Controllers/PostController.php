@@ -10,10 +10,8 @@ class PostController extends Controller
 {
     public function index()
     {
-        // Cứ 10 bài viết sẽ phân trang
-        $posts = Post::all();
-
-        return view('admin.list_post', compact('posts'));
+        // Truyền bài viết vào view (Livewire sẽ xử lý phân trang)
+        return view('admin.list_post');
     }
 
     public function create()

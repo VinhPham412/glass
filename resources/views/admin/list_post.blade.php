@@ -15,7 +15,7 @@
 
   
 
-    @include('component.admin.table_list_post', compact('posts'))
+    @include('component.admin.table_list_post')
 
     
     

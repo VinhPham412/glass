@@ -6,6 +6,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+
 // index create store show edit update destroy
 
 Route::get('/',[ShopController::class, 'index'])->name('shop.index');
@@ -21,7 +22,7 @@ Route::middleware(['login.admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'showDashboard'])->name('admin.dashboard');
 
     // Post
-    Route::get('/admin/post', [PostController::class, 'index'])->name('admin.list_post');
+    Route::get('/admin/post', [PostController::class, 'index'])->name('admin.list_post');    
     Route::get('/admin/post/create', [PostController::class, 'create'])->name('admin.create_post');
     Route::post('/admin/post/store', [PostController::class, 'store'])->name('admin.store_post');
     Route::get('/admin/post/show/{id}', [PostController::class, 'show'])->name('admin.show_post');

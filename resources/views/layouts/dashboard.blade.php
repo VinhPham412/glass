@@ -10,12 +10,12 @@
     </title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+    @livewireStyles
 
 </head>
 
 <body>
-    
+
 
     <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar"
         type="button"
@@ -61,8 +61,8 @@
                         <span class="flex-1 ms-3 whitespace-nowrap text-left">Bài viết</span>
                         <svg class="w-4 h-4 ms-auto" aria-hidden="true" fill="none" stroke="currentColor"
                             viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M19 9l-7 7-7-7"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
                         </svg>
                     </button>
                     <ul id="dropdown-example" class="hidden py-2 space-y-2">
@@ -72,7 +72,7 @@
                                 mới</a>
                         </li>
                         <li>
-                            <a href="{{route('admin.list_post')}}"
+                            <a href="{{ route('admin.list_post') }}"
                                 class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Danh
                                 sách</a>
                         </li>
@@ -151,6 +151,9 @@
             @yield('content')
         </div>
     </div>
+
+
+    @livewireScripts
 </body>
 
 </html>
