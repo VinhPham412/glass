@@ -23,4 +23,8 @@ class PostController extends Controller
     {
 
     }
+
+    public function test(){
+        return view('admin.test');
+    }
 }

@@ -5,15 +5,12 @@
             class="form-input rounded-md shadow-sm mt-1 block w-full md:w-1/3 lg:w-1/4 p-2 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
             placeholder="Tìm kiếm bài viết...">
     </div>
-    <div class="mt-4" id="phan_trang_tren">
-        {{ $posts->links() }}
-    </div>
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-white dark:bg-gray-900">
         <div class="relative inline-block text-left">
             <button type="button" data-dropdown-toggle="dropdown"
                 class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-1 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                id="options-menu" aria-expanded="false" aria-haspopup="true" >
+                id="options-menu" aria-expanded="false" aria-haspopup="true">
                 ( Đã chọn:&nbsp;<span id="selected-count">{{ $count_checkbox }}</span> ) Hành động
                 <i class="fas fa-chevron-down ml-2"></i>
             </button>
@@ -22,12 +19,12 @@
             <div id="dropdown"
                 class="hidden absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
                 <div class="py-1">
-                    <a wire:click='deleteSelected' href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
-                        role="menuitem">Xoá</a>
-                    <a wire:click='hiddenSelected' href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
-                        role="menuitem">Ẩn</a>
-                    <a wire:click='showSelected' href="#" class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
-                        role="menuitem">Hiện</a>
+                    <a wire:click='processSelected("delete")' href="#"
+                        class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Xoá</a>
+                    <a wire:click='processSelected("hidden")' href="#"
+                        class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Ẩn</a>
+                    <a wire:click='processSelected("show")' href="#"
+                        class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100" role="menuitem">Hiện</a>
                 </div>
             </div>
 
@@ -73,7 +70,14 @@
                 @foreach ($posts as $index => $post)
                     <tr data-name = "{{ $post->title }}" data-index = "{{ $index + 1 }}"
                         data-author = "{{ $post->user->name }}" data-update = "{{ $post->updated_at->format('d/m/Y') }}"
-                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600">
+                        class="
+                        @if ($post->status=="hide")
+                            bg-gray-300 dark:bg-red-700
+                        @else 
+                            bg-white dark:bg-gray-800
+                        @endif
+                        
+                        border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600">
                         <td class="px-6 py-4">
                             <input type="checkbox" wire:model.live="selected" value="{{ $post->id }}"
                                 class="form-checkbox h-4 w-4 text-blue-600 transition duration-150 ease-in-out">
@@ -97,14 +101,12 @@
                                 class="font-medium text-yellow-600 dark:text-yellow-400 hover:text-yellow-700 dark:hover:text-yellow-300">
                                 <i class="fas fa-edit"></i> Sửa
                             </a>
-                            <form action="{{ route('admin.delete_post', $post->id) }}" method="POST" class="inline">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    class="font-medium text-red-600 dark:text-red-500 hover:text-red-700 dark:hover:text-red-400">
-                                    <i class="fas fa-trash"></i> Xóa
-                                </button>
-                            </form>
+                            <a href="#"
+                                onclick="confirm('Bạn có chắc chắn muốn xóa bài viết {{ $post->name }}?') || event.stopImmediatePropagation()"
+                                wire:click="deletePost({{ $post->id }})"
+                                class="inline font-medium text-red-600 dark:text-red-500 hover:text-red-700 dark:hover:text-red-400">
+                                <i class="fas fa-trash"></i> Xóa
+                            </a>
                         </td>
                     </tr>
                 @endforeach
@@ -113,8 +115,34 @@
     </div>
 
     <div class="mt-4" id="phan_trang_duoi">
-        {{ $posts->links() }}
+        {{ $posts->links(data: ['scrollTo' => false]) }}
     </div>
 
 
+    <script>
+        document.addEventListener('noselected', event => {
+            alert('Bạn chưa chọn bài viết nào để thực hiện hành động');
+        });
+
+        document.addEventListener('cormfirmdelete', event => {
+            let confirmDelete = confirm('Bạn có chắc chắn muốn xoá các bài viết đã chọn ?');
+            if (confirmDelete) {
+                @this.call('deleteSelected');
+            }
+        });
+
+        document.addEventListener('confirmhidden', event => {
+            let confirmHidden = confirm('Bạn có chắc chắn muốn ẩn các bài viết đã chọn ?');
+            if (confirmHidden) {
+                @this.call('hiddenSelected');
+            }
+        });
+
+        document.addEventListener('confirmshow', event => {
+            let confirmShow = confirm('Bạn có chắc chắn muốn hiện các bài viết đã chọn ?');
+            if (confirmShow) {
+                @this.call('showSelected');
+            }
+        });
+    </script>
 </div>

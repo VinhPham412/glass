@@ -12,7 +12,7 @@ class PostPagination extends Component
 
     public $search = ''; // Từ khóa tìm kiếm
     public $sortField = 'updated_at'; // Trường sắp xếp mặc định
-    public $sortAsc = 'desc'; // Hướng sắp xếp mặc định (tăng dần)
+    public $sortAsc = 'desc'; // Hướng sắp xếp mặc định (giảm dần)
     public $count_checkbox = 0; // Số lượng checkbox được chọn
     public $selected = []; // Mảng chứa id của các bài viết được chọn
     public $selectAll = false; // Trạng thái chọn tất cả
@@ -20,12 +20,54 @@ class PostPagination extends Component
     // Khi input search thay đổi tôi muốn render lại trang
     public function updatingSearch()
     {
+        $this->selected = [];
+        $this->count_checkbox = 0;
         $this->resetPage();
     }
     public function updatedSelected()
     {
         $this->count_checkbox = count($this->selected);
     }
+    public function deletePost($id)
+    {
+        Post::destroy($id);
+    }
+    public function processSelected($process){
+        if (count($this->selected) == 0) {
+            $this->dispatch('noselected');
+            return;
+        }
+
+        if ($process == 'delete') {
+            $this->dispatch('cormfirmdelete');
+        } else if  ($process == 'hidden') {
+            $this->dispatch('confirmhidden');
+        } else if($process == 'show') { 
+            $this->dispatch('confirmshow');
+        }
+    }
+
+    public function deleteSelected()
+    {
+        Post::destroy($this->selected);
+        $this->selected = [];
+        $this->count_checkbox = 0;
+    }
+
+    public function hiddenSelected()
+    {
+        Post::whereIn('id', $this->selected)->update(['status' => 'hide']);
+        $this->selected = [];
+        $this->count_checkbox = 0;
+    }
+
+    public function showSelected()
+    {
+        Post::whereIn('id', $this->selected)->update(['status' => 'show']);
+        $this->selected = [];
+        $this->count_checkbox = 0;
+    }
+
 
     public function render()
     {
@@ -70,33 +112,5 @@ class PostPagination extends Component
         $this->count_checkbox = count($this->selected);
     }
 
-    public function deleteSelected()
-    {
-        Post::destroy($this->selected);
-
-        $this->selected = [];
-        $this->count_checkbox = 0;
-        $this->selectAll = false;
-    }
-
-    public function showSelected()
-    {
-        // Thuộc tính post->status set thành show 
-        Post::whereIn('id', $this->selected)->update(['status' => 'show']);
-
-        $this->selected = [];
-        $this->count_checkbox = 0;
-        $this->selectAll = false;
-    }
-
-    public function hiddenSelected()
-    {
-        // Thuộc tính post->status set thành hidden
-        Post::whereIn('id', $this->selected)->update(['status' => 'hidden']);
-        
-        $this->selected = [];
-        $this->count_checkbox = 0;
-        $this->selectAll = false;
-    }
 
 }
