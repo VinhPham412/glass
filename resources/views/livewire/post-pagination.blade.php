@@ -66,7 +66,7 @@
                     <th scope="col" class="px-6 py-3 text-white">Chức năng</th>
                 </tr>
             </thead>
-            <tbody wire:poll.5s>
+            <tbody wire:poll.4s>
                 @foreach ($posts as $index => $post)
                     <tr data-name = "{{ $post->title }}" data-index = "{{ $index + 1 }}"
                         data-author = "{{ $post->user->name }}" data-update = "{{ $post->created_at->format('d/m/Y') }}"
