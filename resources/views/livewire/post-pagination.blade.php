@@ -52,10 +52,10 @@
                     </th>
                     <th scope="col" class="px-6 py-3 text-white">Ảnh bài viết</th>
                     <th id="post_author" scope="col" class="px-6 py-3 text-white ">Tác giả</th>
-                    <th wire:click="sortBy('updated_at')" id="post_update" scope="col"
+                    <th wire:click="sortBy('created_at')" id="post_update" scope="col"
                         class="px-6 py-3 text-white cursor-pointer">
-                        Ngày chỉnh sửa
-                        @if ($sortField === 'updated_at')
+                        Ngày tạo
+                        @if ($sortField === 'created_at')
                             @if ($sortAsc === 'asc')
                                 <i class="fas fa-sort-down"></i>
                             @else
@@ -66,16 +66,14 @@
                     <th scope="col" class="px-6 py-3 text-white">Chức năng</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody wire:poll.5s>
                 @foreach ($posts as $index => $post)
                     <tr data-name = "{{ $post->title }}" data-index = "{{ $index + 1 }}"
-                        data-author = "{{ $post->user->name }}" data-update = "{{ $post->updated_at->format('d/m/Y') }}"
+                        data-author = "{{ $post->user->name }}" data-update = "{{ $post->created_at->format('d/m/Y') }}"
                         class="
-                        @if ($post->status=="hide")
-                            bg-gray-300 dark:bg-red-700
+                        @if ($post->status == 'hide') bg-gray-300 dark:bg-red-700
                         @else 
-                            bg-white dark:bg-gray-800
-                        @endif
+                            bg-white dark:bg-gray-800 @endif
                         
                         border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600">
                         <td class="px-6 py-4">
@@ -90,7 +88,7 @@
                                 class="w-10 h-10 rounded-lg border-2 border-gray-200 dark:border-gray-600">
                         </td>
                         <td class="px-6 py-4 text-gray-600 dark:text-gray-300">{{ $post->user->name }}</td>
-                        <td class="px-6 py-4 text-gray-600 dark:text-gray-300">{{ $post->updated_at->format('d/m/Y') }}
+                        <td class="px-6 py-4 text-gray-600 dark:text-gray-300">{{ $post->created_at->format('d/m/Y') }}
                         </td>
                         <td class="px-6 py-4 text-center space-x-4 flex justify-start items-center ">
                             <a href="{{ route('admin.show_post', $post->id) }}"
@@ -138,7 +136,8 @@
             }
         });
 
-        document.addEventListener('confirmshow', event => {
+
+        document.addEventListener('confirmshow', (data) => {
             let confirmShow = confirm('Bạn có chắc chắn muốn hiện các bài viết đã chọn ?');
             if (confirmShow) {
                 @this.call('showSelected');

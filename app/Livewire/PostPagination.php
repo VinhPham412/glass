@@ -9,9 +9,10 @@ use Livewire\WithPagination;
 class PostPagination extends Component
 {
     use WithPagination;
+    protected $listeners = ['postCreated' => 'render'];
 
     public $search = ''; // Từ khóa tìm kiếm
-    public $sortField = 'updated_at'; // Trường sắp xếp mặc định
+    public $sortField = 'created_at'; // Trường sắp xếp mặc định
     public $sortAsc = 'desc'; // Hướng sắp xếp mặc định (giảm dần)
     public $count_checkbox = 0; // Số lượng checkbox được chọn
     public $selected = []; // Mảng chứa id của các bài viết được chọn
@@ -59,6 +60,7 @@ class PostPagination extends Component
         Post::whereIn('id', $this->selected)->update(['status' => 'hide']);
         $this->selected = [];
         $this->count_checkbox = 0;
+
     }
 
     public function showSelected()
