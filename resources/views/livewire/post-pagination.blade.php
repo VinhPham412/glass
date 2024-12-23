@@ -4,6 +4,14 @@
         <input type="text" id="search-input" wire:model.live.debounce.300ms="search"
             class="form-input rounded-md shadow-sm mt-1 block w-full md:w-1/3 lg:w-1/4 p-2 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500"
             placeholder="Tìm kiếm bài viết...">
+        <!--filter danh mục -->
+        <select wire:model.live="catpost_id"
+            class=" bg-gray-300 form-select rounded-md shadow-sm mt-1 block p-2 border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500">
+            <option value="">Lọc theo danh mục</option>
+            @foreach ($catpost as $item)
+                <option value="{{ $item->id }}">{{ $item->title }}</option>
+            @endforeach
+        </select>
     </div>
 
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg bg-white dark:bg-gray-900">
@@ -51,6 +59,7 @@
                         @endif
                     </th>
                     <th scope="col" class="px-6 py-3 text-white">Ảnh bài viết</th>
+                    <th scope="col" class="px-6 py-3 text-white">Danh mục</th>
                     <th id="post_author" scope="col" class="px-6 py-3 text-white ">Tác giả</th>
                     <th wire:click="sortBy('created_at')" id="post_update" scope="col"
                         class="px-6 py-3 text-white cursor-pointer">
@@ -66,7 +75,7 @@
                     <th scope="col" class="px-6 py-3 text-white">Chức năng</th>
                 </tr>
             </thead>
-            <tbody wire:poll.4s>
+            <tbody wire:poll.5s>
                 @foreach ($posts as $index => $post)
                     <tr data-name = "{{ $post->title }}" data-index = "{{ $index + 1 }}"
                         data-author = "{{ $post->user->name }}" data-update = "{{ $post->created_at->format('d/m/Y') }}"
@@ -87,6 +96,7 @@
                             <img src="{{ $post->thumbnail }}" alt="{{ $post->title }}"
                                 class="w-10 h-10 rounded-lg border-2 border-gray-200 dark:border-gray-600">
                         </td>
+                        <td class="px-6 py-4 text-gray-600 dark:text-gray-300">{{ $post->catpost->title }}</td>
                         <td class="px-6 py-4 text-gray-600 dark:text-gray-300">{{ $post->user->name }}</td>
                         <td class="px-6 py-4 text-gray-600 dark:text-gray-300">{{ $post->created_at->format('d/m/Y') }}
                         </td>

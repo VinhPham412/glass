@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\CatPost;
 use App\Models\Post;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -9,7 +10,10 @@ use Livewire\WithPagination;
 class PostPagination extends Component
 {
     use WithPagination;
-    protected $listeners = ['postCreated' => 'render'];
+    protected $listeners = [
+        'postCreated' => 'render',
+        'postDeleted' => 'render',
+    ];
 
     public $search = ''; // Từ khóa tìm kiếm
     public $sortField = 'created_at'; // Trường sắp xếp mặc định
@@ -17,9 +21,17 @@ class PostPagination extends Component
     public $count_checkbox = 0; // Số lượng checkbox được chọn
     public $selected = []; // Mảng chứa id của các bài viết được chọn
     public $selectAll = false; // Trạng thái chọn tất cả
+    public $catpost;
+    public $catpost_id = ""; // ID của danh mục bài viết
 
     // Khi input search thay đổi tôi muốn render lại trang
     public function updatingSearch()
+    {
+        $this->selected = [];
+        $this->count_checkbox = 0;
+        $this->resetPage();
+    }
+    public function updatingCatpostId()
     {
         $this->selected = [];
         $this->count_checkbox = 0;
@@ -73,11 +85,18 @@ class PostPagination extends Component
 
     public function render()
     {
+        // Lấy ra danh sách danh mục bài viết
+        $this->catpost = CatPost::all();
+
         // Tìm kiếm và sắp xếp
         $posts = Post::query()
             // Tìm kiếm theo tiêu đề nếu có
             ->when($this->search, function ($query) {
                 return $query->where('title', 'like', '%' . $this->search . '%');
+            })
+            // Tìm kiếm theo danh mục bài viết nếu có
+            ->when($this->catpost_id, function ($query) {
+                return $query->where('catpost_id', $this->catpost_id);
             })
             // Sắp xếp theo độ dài và từ điển nếu có
             ->orderByRaw('LENGTH(' . $this->sortField . ') ' . $this->sortAsc)
@@ -85,7 +104,7 @@ class PostPagination extends Component
             ->paginate(10); // Phân trang
 
         return view('livewire.post-pagination', [
-            'posts' => $posts
+            'posts' => $posts,
         ]);
     }
 
