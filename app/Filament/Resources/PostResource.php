@@ -27,25 +27,25 @@ class PostResource extends Resource
         return $form
             ->schema([
                 Forms\Components\TextInput::make('title')
-                ->label('Tiêu đề')
-                ->required()
-                ->placeholder('Nhập tiêu đề bài viết')
-                ->maxlength(255),
+                    ->label('Tiêu đề')
+                    ->required()
+                    ->placeholder('Nhập tiêu đề bài viết')
+                    ->maxlength(255),
                 // thêm trường thumbnail là trường file 
                 Forms\Components\FileUpload::make('thumbnail'),
                 // thêm trường mô tả là trường rich editor
                 RichEditor::make('content')
-                ->label('Nội dung') 
-                ->required()
-                ->columnSpan('full'),
+                    ->label('Nội dung')
+                    ->required()
+                    ->columnSpan('full'),
                 // Thêm trường select để chọn ẩn/hiện bài viết 
                 Forms\Components\Select::make('status')
-                ->label('Trạng thái')
-                ->options([
-                    'show' => 'Hiện',
-                    'hide' => 'Ẩn', 
-                ])
-                ->required()
+                    ->label('Trạng thái')
+                    ->options([
+                        'show' => 'Hiện',
+                        'hide' => 'Ẩn',
+                    ])
+                    ->required()
             ]);
     }
 
@@ -55,7 +55,33 @@ class PostResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('title')
                     ->label('Tiêu đề')
-                    ->sortable()
+                    ->sortable(
+                        // CHuỗi  nào dài hơn thì lớn hơn
+                        query: function (Builder $query, string $direction): Builder {
+                            return $query->orderByRaw('LENGTH(title) ' . $direction)
+                                ->orderBy('title', $direction);
+                        }
+                    )
+                    ->searchable(),
+                // thêm cột thumbnail
+                Tables\Columns\ImageColumn::make('thumbnail')
+                    ->label('Ảnh đại diện'),
+                // thêm cột status
+                Tables\Columns\TextColumn::make('status')
+                    ->label('Trạng thái')
+                    ->formatStateUsing(fn(string $state): string => $state === 'show' ? 'Hiện' : 'Ẩn'),
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('Người tạo')
+                    ->searchable()
+                    ->sortable(
+                        query: function (Builder $query, string $direction): Builder {
+                            return $query->join('users', 'posts.user_id', '=', 'users.id')
+                            ->orderByRaw('LENGTH(users.name) ' . $direction)
+                            ->orderBy('users.name', $direction);
+                        }
+                    ),
+                Tables\Columns\TextColumn::make('catpost.title')
+                    ->label('Danh mục')
                     ->searchable(),
             ])
             ->filters([
@@ -77,6 +103,7 @@ class PostResource extends Resource
             //
         ];
     }
+
 
     public static function getPages(): array
     {

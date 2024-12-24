@@ -4965,16 +4965,16 @@
         },
         {
             "name": "spatie/color",
-            "version": "1.6.2",
+            "version": "1.6.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/color.git",
-                "reference": "b4fac074a9e5999dcca12cbfab0f7c73e2684d6d"
+                "reference": "45c4354ffa7e65f05c502b009834ecac7928daa3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/color/zipball/b4fac074a9e5999dcca12cbfab0f7c73e2684d6d",
-                "reference": "b4fac074a9e5999dcca12cbfab0f7c73e2684d6d",
+                "url": "https://api.github.com/repos/spatie/color/zipball/45c4354ffa7e65f05c502b009834ecac7928daa3",
+                "reference": "45c4354ffa7e65f05c502b009834ecac7928daa3",
                 "shasum": ""
             },
             "require": {
@@ -5012,7 +5012,7 @@
             ],
             "support": {
                 "issues": "https://github.com/spatie/color/issues",
-                "source": "https://github.com/spatie/color/tree/1.6.2"
+                "source": "https://github.com/spatie/color/tree/1.6.3"
             },
             "funding": [
                 {
@@ -5020,7 +5020,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-12-09T16:20:38+00:00"
+            "time": "2024-12-23T11:00:34+00:00"
         },
         {
             "name": "spatie/invade",
@@ -5143,16 +5143,16 @@
         },
         {
             "name": "spatie/laravel-query-builder",
-            "version": "6.2.2",
+            "version": "6.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-query-builder.git",
-                "reference": "b25d0218c2cedad3a06f87b49dc5217ab0ba07ee"
+                "reference": "96746011866fc3c67953557c17b7d017bf5b3e07"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-query-builder/zipball/b25d0218c2cedad3a06f87b49dc5217ab0ba07ee",
-                "reference": "b25d0218c2cedad3a06f87b49dc5217ab0ba07ee",
+                "url": "https://api.github.com/repos/spatie/laravel-query-builder/zipball/96746011866fc3c67953557c17b7d017bf5b3e07",
+                "reference": "96746011866fc3c67953557c17b7d017bf5b3e07",
                 "shasum": ""
             },
             "require": {
@@ -5213,7 +5213,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2024-12-11T09:53:49+00:00"
+            "time": "2024-12-23T22:16:11+00:00"
         },
         {
             "name": "symfony/console",
