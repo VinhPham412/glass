@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
+use Filament\Tables\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -13,6 +14,11 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\RichEditor;
+use Filament\Tables\Actions\BulkAction;
+use Filament\Tables\Actions\BulkActionGroup;
+use Filament\Tables\Filters;
+use Filament\Tables\Filters\TernaryFilter;
+use Illuminate\Database\Eloquent\Collection;
 
 class PostResource extends Resource
 {
@@ -76,23 +82,56 @@ class PostResource extends Resource
                     ->sortable(
                         query: function (Builder $query, string $direction): Builder {
                             return $query->join('users', 'posts.user_id', '=', 'users.id')
-                            ->orderByRaw('LENGTH(users.name) ' . $direction)
-                            ->orderBy('users.name', $direction);
+                                ->orderByRaw('LENGTH(users.name) ' . $direction)
+                                ->orderBy('users.name', $direction);
                         }
                     ),
                 Tables\Columns\TextColumn::make('catpost.title')
                     ->label('Danh mục')
-                    ->searchable(),
+                    ->searchable()
+                    ->sortable(
+                        query: function (Builder $query, string $direction): Builder {
+                            return $query->join('cat_posts', 'posts.catpost_id', '=', 'cat_posts.id')
+                                ->orderByRaw('LENGTH(cat_posts.title) ' . $direction)
+                                ->orderBy('cat_posts.title', $direction);
+                        }
+                    ),
             ])
             ->filters([
-                //
+                Filters\SelectFilter::make('status')
+                    ->label('Trạng thái')
+                    ->options([
+                        'show' => 'Hiện',
+                        'hide' => 'Ẩn',
+                    ]),
+                // thêm filter theo danh mục
+                Filters\SelectFilter::make('catpost_id')
+                    ->label('Danh mục')
+                    ->options(fn() => \App\Models\CatPost::pluck('title', 'id')->toArray()),
+                // Filters\Filter::make('is_status')
+                //     ->label('Trạng thái Hiện')
+                //     ->query(fn (Builder $query): Builder => $query->where('status', 'show'))
+                //     ->toggle(),
+
             ])
             ->actions([
+                // thêm action xem chi tiết
                 Tables\Actions\EditAction::make(),
+                // thêm action xóa
+                Tables\Actions\DeleteAction::make(),
+                // Thêm action ẩn
+                Action::make('Ẩn/Hiện')
+                    ->action(fn(Post $record) => $record->update(['status' => $record->status === 'show' ? 'hide' : 'show']))
+
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
+                BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    BulkAction::make('Ẩn')
+                        ->action(fn(Collection $records) => $records->each->update(['status' => 'hide'])),
+                    BulkAction::make('Hiện')
+                        ->action(fn(Collection $records) => $records->each->update(['status' => 'show'])),
+
                 ]),
             ]);
     }
