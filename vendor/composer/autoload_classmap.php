@@ -59,6 +59,7 @@ return array(
     'App\\Models\\Origin' => $baseDir . '/app/Models/Origin.php',
     'App\\Models\\Page' => $baseDir . '/app/Models/Page.php',
     'App\\Models\\Post' => $baseDir . '/app/Models/Post.php',
+    'App\\Models\\PostImage' => $baseDir . '/app/Models/PostImage.php',
     'App\\Models\\Product' => $baseDir . '/app/Models/Product.php',
     'App\\Models\\Promotion' => $baseDir . '/app/Models/Promotion.php',
     'App\\Models\\ReviewPro' => $baseDir . '/app/Models/ReviewPro.php',

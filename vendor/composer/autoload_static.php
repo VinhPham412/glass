@@ -436,8 +436,8 @@ class ComposerStaticInit0e25fe7177aaa9a239d349216b2103b9
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -493,8 +493,8 @@ class ComposerStaticInit0e25fe7177aaa9a239d349216b2103b9
         ),
         'League\\Uri\\' => 
         array (
-            0 => __DIR__ . '/..' . '/league/uri-interfaces',
-            1 => __DIR__ . '/..' . '/league/uri',
+            0 => __DIR__ . '/..' . '/league/uri',
+            1 => __DIR__ . '/..' . '/league/uri-interfaces',
         ),
         'League\\MimeTypeDetection\\' => 
         array (
@@ -761,6 +761,7 @@ class ComposerStaticInit0e25fe7177aaa9a239d349216b2103b9
         'App\\Models\\Origin' => __DIR__ . '/../..' . '/app/Models/Origin.php',
         'App\\Models\\Page' => __DIR__ . '/../..' . '/app/Models/Page.php',
         'App\\Models\\Post' => __DIR__ . '/../..' . '/app/Models/Post.php',
+        'App\\Models\\PostImage' => __DIR__ . '/../..' . '/app/Models/PostImage.php',
         'App\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
         'App\\Models\\Promotion' => __DIR__ . '/../..' . '/app/Models/Promotion.php',
         'App\\Models\\ReviewPro' => __DIR__ . '/../..' . '/app/Models/ReviewPro.php',

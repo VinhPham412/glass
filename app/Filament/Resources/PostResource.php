@@ -27,7 +27,7 @@ class PostResource extends Resource
     // đổi tên model từ PostResource thành Bài viết
     public static ?string $label = 'Bài viết';
 
-    protected static ?string $navigationIcon = 'heroicon-o-document-text';
+    protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
     public static function form(Form $form): Form
     {
@@ -56,12 +56,12 @@ class PostResource extends Resource
                         '1:1',
                         '3:4',
                         '9:16',
-                        '3:2',
                     ])
                     ->extraAttributes([
                         'data-image-transform-output-mime-type' => 'image/webp', // Tự động chuyển sang webp
                         'data-image-transform-output-quality' => '80', // Giảm chất lượng ảnh
-                    ]),
+                    ])
+                    ,
                 // thêm trường mô tả là trường rich editor
                 RichEditor::make('content')
                     ->label('Nội dung')
@@ -110,7 +110,7 @@ class PostResource extends Resource
                     ->label('Trạng thái')
                     ->formatStateUsing(fn(string $state): string => $state === 'show' ? 'Hiện' : 'Ẩn')
                     ->color(fn(string $state): string => $state === 'show' ? 'success' : 'danger') // Đặt màu theo trạng thái
-                    ->toggleable(),
+                    ->toggleable(true),
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('Người tạo')
                     ->searchable()
@@ -130,7 +130,8 @@ class PostResource extends Resource
                                 ->orderByRaw('LENGTH(cat_posts.title) ' . $direction)
                                 ->orderBy('cat_posts.title', $direction);
                         }
-                    ),
+                    )
+                    ->toggleable(true),
             ])
             ->filters([
                 Filters\SelectFilter::make('status')
@@ -174,7 +175,7 @@ class PostResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            'catpost' => RelationManagers\CatpostRelationManager::class,
         ];
     }
 
