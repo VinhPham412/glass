@@ -19,6 +19,7 @@ use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Filters;
 use Filament\Tables\Filters\TernaryFilter;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\Storage;
 
 class PostResource extends Resource
 {
@@ -26,7 +27,7 @@ class PostResource extends Resource
     // đổi tên model từ PostResource thành Bài viết
     public static ?string $label = 'Bài viết';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
     public static function form(Form $form): Form
     {
@@ -38,10 +39,34 @@ class PostResource extends Resource
                     ->placeholder('Nhập tiêu đề bài viết')
                     ->maxlength(255),
                 // thêm trường thumbnail là trường file 
-                Forms\Components\FileUpload::make('thumbnail'),
+                Forms\Components\FileUpload::make('thumbnail')
+                    ->label('Ảnh đại diện')
+                    ->disk('public')
+                    ->directory('uploads/')
+                    ->deleteUploadedFileUsing(function ($file) {
+                        // Xóa file ảnh khi xóa bài viết hoặc cập nhật ảnh bài viết
+                        Storage::disk('public')->delete($file);
+
+                    })
+                    ->image()
+                    ->imageEditor()
+                    ->imageEditorAspectRatios([
+                        '16:9',
+                        '4:3',
+                        '1:1',
+                        '3:4',
+                        '9:16',
+                        '3:2',
+                    ])
+                    ->extraAttributes([
+                        'data-image-transform-output-mime-type' => 'image/webp', // Tự động chuyển sang webp
+                        'data-image-transform-output-quality' => '80', // Giảm chất lượng ảnh
+                    ]),
                 // thêm trường mô tả là trường rich editor
                 RichEditor::make('content')
                     ->label('Nội dung')
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsDirectory('uploads/')
                     ->required()
                     ->columnSpan('full'),
                 // Thêm trường select để chọn ẩn/hiện bài viết 
@@ -51,7 +76,14 @@ class PostResource extends Resource
                         'show' => 'Hiện',
                         'hide' => 'Ẩn',
                     ])
-                    ->required()
+                    ->required(),
+                // thêm trường danh mục
+                Forms\Components\Select::make('catpost_id')
+                    ->label('Danh mục')
+                    ->options(fn() => \App\Models\CatPost::pluck('title', 'id')->toArray())
+                    ->required(),
+                Forms\Components\Hidden::make('user_id')
+                    ->default(auth()->id()),
             ]);
     }
 
@@ -71,11 +103,14 @@ class PostResource extends Resource
                     ->searchable(),
                 // thêm cột thumbnail
                 Tables\Columns\ImageColumn::make('thumbnail')
-                    ->label('Ảnh đại diện'),
+                    ->label('Ảnh đại diện')
+                    ,
                 // thêm cột status
                 Tables\Columns\TextColumn::make('status')
                     ->label('Trạng thái')
-                    ->formatStateUsing(fn(string $state): string => $state === 'show' ? 'Hiện' : 'Ẩn'),
+                    ->formatStateUsing(fn(string $state): string => $state === 'show' ? 'Hiện' : 'Ẩn')
+                    ->color(fn(string $state): string => $state === 'show' ? 'success' : 'danger') // Đặt màu theo trạng thái
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('Người tạo')
                     ->searchable()
@@ -152,4 +187,5 @@ class PostResource extends Resource
             'edit' => Pages\EditPost::route('/{record}/edit'),
         ];
     }
+
 }

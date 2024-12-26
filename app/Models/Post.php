@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
 {
@@ -13,10 +14,43 @@ class Post extends Model
         'title',
         'status',
         'content',
-        'thumnail',
+        'thumbnail',
         'user_id',
         'catpost_id'
     ];
+
+    // Xoá ảnh liên quan khi xoá bài viết
+    protected static function booted()
+    {
+        static::deleting(function ($post) {
+            if ($post->thumbnail) {
+                Storage::disk('public')->delete($post->thumbnail);
+            }
+
+            // Xóa tất cả ảnh liên quan
+            foreach ($post->post_images as $image) {
+                Storage::disk('public')->delete($image->link); // Xóa file ảnh
+                $image->delete(); // Xóa khỏi cơ sở dữ liệu
+            }
+        });
+
+        static::saved(function ($post) {
+            // Tìm tất cả các ảnh trong nội dung bài viết
+            preg_match_all('/uploads\/[a-zA-Z0-9\-_]+\.(jpg|jpeg|png|gif|webp)/', $post->content, $matches);
+            $imagePaths = $matches[0] ?? [];
+
+            // Lưu các ảnh vào bảng post_images
+            foreach ($imagePaths as $path) {
+                \App\Models\PostImage::firstOrCreate([
+                    'post_id' => $post->id,
+                    'link' => str_replace('/storage/', '', $path), // Chuyển từ URL sang đường dẫn file
+                ]);
+            }
+
+            // Xóa metadata ảnh không còn trong nội dung
+            $post->post_images()->whereNotIn('link', $imagePaths)->delete();
+        });
+    }
 
     public function user()
     {
@@ -26,5 +60,10 @@ class Post extends Model
     public function catpost()
     {
         return $this->belongsTo(Catpost::class);
+    }
+
+    public function post_images()
+    {
+        return $this->hasMany(PostImage::class);
     }
 }

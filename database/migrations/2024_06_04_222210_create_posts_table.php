@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('content');
             $table->string('thumbnail')->nullable();
             $table->enum('status', ['show', 'hide'])->default('show');
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('user_id')->default(auth()->id());
             $table->unsignedBigInteger('catpost_id');
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
