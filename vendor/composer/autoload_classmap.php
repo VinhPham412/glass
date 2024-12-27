@@ -18,6 +18,7 @@ return array(
     'App\\Filament\\Resources\\PostResource\\Pages\\CreatePost' => $baseDir . '/app/Filament/Resources/PostResource/Pages/CreatePost.php',
     'App\\Filament\\Resources\\PostResource\\Pages\\EditPost' => $baseDir . '/app/Filament/Resources/PostResource/Pages/EditPost.php',
     'App\\Filament\\Resources\\PostResource\\Pages\\ListPosts' => $baseDir . '/app/Filament/Resources/PostResource/Pages/ListPosts.php',
+    'App\\Filament\\Resources\\PostResource\\RelationManagers\\CatpostRelationManager' => $baseDir . '/app/Filament/Resources/PostResource/RelationManagers/CatpostRelationManager.php',
     'App\\Http\\Controllers\\AdminController' => $baseDir . '/app/Http/Controllers/AdminController.php',
     'App\\Http\\Controllers\\CatPostController' => $baseDir . '/app/Http/Controllers/CatPostController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',

@@ -5,6 +5,7 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\PostResource\Pages;
 use App\Filament\Resources\PostResource\RelationManagers;
 use App\Models\Post;
+use Filament\Tables\Actions\CreateAction;
 use Filament\Tables\Actions\Action;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -14,12 +15,20 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\TextInput;
 use Filament\Tables\Actions\BulkAction;
 use Filament\Tables\Actions\BulkActionGroup;
 use Filament\Tables\Filters;
 use Filament\Tables\Filters\TernaryFilter;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\Storage;
+use App\Filament\Exports\ProductExporter;
+use App\Models\CatPost;
+use Livewire\Livewire;
+use Filament\Forms\Components\Placeholder;
+use Filament\Forms\Components\Repeater;
+use Filament\Tables\Actions\ExportAction;
+use Filament\Tables\Actions\ViewAction;
 
 class PostResource extends Resource
 {
@@ -46,7 +55,6 @@ class PostResource extends Resource
                     ->deleteUploadedFileUsing(function ($file) {
                         // Xóa file ảnh khi xóa bài viết hoặc cập nhật ảnh bài viết
                         Storage::disk('public')->delete($file);
-
                     })
                     ->image()
                     ->imageEditor()
@@ -60,8 +68,7 @@ class PostResource extends Resource
                     ->extraAttributes([
                         'data-image-transform-output-mime-type' => 'image/webp', // Tự động chuyển sang webp
                         'data-image-transform-output-quality' => '80', // Giảm chất lượng ảnh
-                    ])
-                    ,
+                    ]),
                 // thêm trường mô tả là trường rich editor
                 RichEditor::make('content')
                     ->label('Nội dung')
@@ -103,8 +110,7 @@ class PostResource extends Resource
                     ->searchable(),
                 // thêm cột thumbnail
                 Tables\Columns\ImageColumn::make('thumbnail')
-                    ->label('Ảnh đại diện')
-                    ,
+                    ->label('Ảnh đại diện'),
                 // thêm cột status
                 Tables\Columns\TextColumn::make('status')
                     ->label('Trạng thái')
@@ -157,7 +163,60 @@ class PostResource extends Resource
                 Tables\Actions\DeleteAction::make(),
                 // Thêm action ẩn
                 Action::make('Ẩn/Hiện')
-                    ->action(fn(Post $record) => $record->update(['status' => $record->status === 'show' ? 'hide' : 'show']))
+                    ->action(fn(Post $record) => $record->update(['status' => $record->status === 'show' ? 'hide' : 'show'])),
+                ViewAction::make()
+                    ->form([
+                        Forms\Components\TextInput::make('title')
+                            ->label('Tiêu đề')
+                            ->required()
+                            ->placeholder('Nhập tiêu đề bài viết')
+                            ->maxlength(255),
+                        // thêm trường thumbnail là trường file 
+                        Forms\Components\FileUpload::make('thumbnail')
+                            ->label('Ảnh đại diện')
+                            ->disk('public')
+                            ->directory('uploads/')
+                            ->deleteUploadedFileUsing(function ($file) {
+                                // Xóa file ảnh khi xóa bài viết hoặc cập nhật ảnh bài viết
+                                Storage::disk('public')->delete($file);
+                            })
+                            ->image()
+                            ->imageEditor()
+                            ->imageEditorAspectRatios([
+                                '16:9',
+                                '4:3',
+                                '1:1',
+                                '3:4',
+                                '9:16',
+                            ])
+                            ->extraAttributes([
+                                'data-image-transform-output-mime-type' => 'image/webp', // Tự động chuyển sang webp
+                                'data-image-transform-output-quality' => '80', // Giảm chất lượng ảnh
+                            ]),
+                        // thêm trường mô tả là trường rich editor
+                        RichEditor::make('content')
+                            ->label('Nội dung')
+                            ->fileAttachmentsDisk('public')
+                            ->fileAttachmentsDirectory('uploads/')
+                            ->required()
+                            ->columnSpan('full'),
+                        // Thêm trường select để chọn ẩn/hiện bài viết 
+                        Forms\Components\Select::make('status')
+                            ->label('Trạng thái')
+                            ->options([
+                                'show' => 'Hiện',
+                                'hide' => 'Ẩn',
+                            ])
+                            ->required(),
+                        // thêm trường danh mục
+                        Forms\Components\Select::make('catpost_id')
+                            ->label('Danh mục')
+                            ->options(fn() => \App\Models\CatPost::pluck('title', 'id')->toArray())
+                            ->required(),
+                        Forms\Components\Hidden::make('user_id')
+                            ->default(auth()->id()),
+                    ])
+                    ->slideOver(),
 
             ])
             ->bulkActions([
@@ -169,13 +228,22 @@ class PostResource extends Resource
                         ->action(fn(Collection $records) => $records->each->update(['status' => 'show'])),
 
                 ]),
-            ]);
+            ])
+            ->headerActions([
+                Action::make('Tạo danh mục')
+                    ->label('Tạo danh mục') // Đặt tên nút
+                    ->modalHeading('Tạo mới danh mục') // Tiêu đề modal
+                    ->modalContent(
+                        view('partials.admin_cat_post') // View tạo danh mục
+                    ),
+            ])
+        ;
     }
 
     public static function getRelations(): array
     {
         return [
-            'catpost' => RelationManagers\CatpostRelationManager::class,
+            // 'catpost' => RelationManagers\CatpostRelationManager::class,
         ];
     }
 
@@ -188,5 +256,4 @@ class PostResource extends Resource
             'edit' => Pages\EditPost::route('/{record}/edit'),
         ];
     }
-
 }

@@ -720,6 +720,7 @@ class ComposerStaticInit0e25fe7177aaa9a239d349216b2103b9
         'App\\Filament\\Resources\\PostResource\\Pages\\CreatePost' => __DIR__ . '/../..' . '/app/Filament/Resources/PostResource/Pages/CreatePost.php',
         'App\\Filament\\Resources\\PostResource\\Pages\\EditPost' => __DIR__ . '/../..' . '/app/Filament/Resources/PostResource/Pages/EditPost.php',
         'App\\Filament\\Resources\\PostResource\\Pages\\ListPosts' => __DIR__ . '/../..' . '/app/Filament/Resources/PostResource/Pages/ListPosts.php',
+        'App\\Filament\\Resources\\PostResource\\RelationManagers\\CatpostRelationManager' => __DIR__ . '/../..' . '/app/Filament/Resources/PostResource/RelationManagers/CatpostRelationManager.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\CatPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/CatPostController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
