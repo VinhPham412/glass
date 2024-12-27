@@ -84,14 +84,34 @@ class PostResource extends Resource
                         'hide' => 'Ẩn',
                     ])
                     ->required(),
+
                 // thêm trường danh mục
                 Forms\Components\Select::make('catpost_id')
                     ->label('Danh mục')
                     ->options(fn() => \App\Models\CatPost::pluck('title', 'id')->toArray())
-                    ->required(),
+                    ->required()
+                    ->suffixAction(
+                        \Filament\Forms\Components\Actions\Action::make('Thêm danh mục')
+                            ->icon('heroicon-o-plus-circle')
+                            ->color('success')
+                            ->label('Danh mục') // Đặt tên nút
+                            ->modalHeading('Chỉnh sửa danh mục') // Tiêu đề modal
+                            ->modalContent(
+                                view('partials.admin_cat_post') // View tạo danh mục
+                            )
+                            // bỏ nủ gửi trong modal ở filament 3x
+                            ->modalSubmitAction(false)
+                            ->stickyModalHeader()
+                            ,
+
+                    ),
                 Forms\Components\Hidden::make('user_id')
                     ->default(auth()->id()),
-            ]);
+            ])
+            // thêm nút vào đầu form để quay lại danh sách
+
+
+        ;
     }
 
     public static function table(Table $table): Table
@@ -181,7 +201,7 @@ class PostResource extends Resource
                                 Storage::disk('public')->delete($file);
                             })
                             ->image(),
-                            
+
                         // thêm trường mô tả là trường rich editor
                         RichEditor::make('content')
                             ->label('Nội dung')
