@@ -27,7 +27,6 @@
                             <input type="text" class="w-full px-2 py-1 border border-gray-300 rounded-md" 
                                 wire:key="catpost-{{ $catPost->id }}"
                                 wire:model="listCatPost.{{ $catPost->id }}"
-                                {{-- value="{{ $catPost->title }}" --}}
                                 >
                         </td>
                         <td class="px-6 py-4 flex justify-center">

@@ -99,7 +99,7 @@ class PostResource extends Resource
                             ->modalContent(
                                 view('partials.admin_cat_post') // View tạo danh mục
                             )
-                            // bỏ nủ gửi trong modal ở filament 3x
+                            // bỏ nủt gửi trong modal ở filament 3x
                             ->modalSubmitAction(false)
                             ->stickyModalHeader()
                             ,
@@ -244,7 +244,8 @@ class PostResource extends Resource
                     ->modalHeading('Chỉnh sửa danh mục') // Tiêu đề modal
                     ->modalContent(
                         view('partials.admin_cat_post') // View tạo danh mục
-                    ),
+                    )
+                    ->modalSubmitAction(false),
             ])
         ;
     }
