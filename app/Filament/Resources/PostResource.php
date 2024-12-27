@@ -157,7 +157,7 @@ class PostResource extends Resource
 
             ])
             ->actions([
-                // thêm action xem chi tiết
+                // thêm action chỉnh sửa chi tiết
                 Tables\Actions\EditAction::make(),
                 // thêm action xóa
                 Tables\Actions\DeleteAction::make(),
@@ -180,19 +180,8 @@ class PostResource extends Resource
                                 // Xóa file ảnh khi xóa bài viết hoặc cập nhật ảnh bài viết
                                 Storage::disk('public')->delete($file);
                             })
-                            ->image()
-                            ->imageEditor()
-                            ->imageEditorAspectRatios([
-                                '16:9',
-                                '4:3',
-                                '1:1',
-                                '3:4',
-                                '9:16',
-                            ])
-                            ->extraAttributes([
-                                'data-image-transform-output-mime-type' => 'image/webp', // Tự động chuyển sang webp
-                                'data-image-transform-output-quality' => '80', // Giảm chất lượng ảnh
-                            ]),
+                            ->image(),
+                            
                         // thêm trường mô tả là trường rich editor
                         RichEditor::make('content')
                             ->label('Nội dung')
@@ -216,7 +205,7 @@ class PostResource extends Resource
                         Forms\Components\Hidden::make('user_id')
                             ->default(auth()->id()),
                     ])
-                    ->slideOver(),
+                    ->modal(),
 
             ])
             ->bulkActions([
@@ -230,9 +219,9 @@ class PostResource extends Resource
                 ]),
             ])
             ->headerActions([
-                Action::make('Tạo danh mục')
-                    ->label('Tạo danh mục') // Đặt tên nút
-                    ->modalHeading('Tạo mới danh mục') // Tiêu đề modal
+                Action::make('Danh mục')
+                    ->label('Danh mục') // Đặt tên nút
+                    ->modalHeading('Chỉnh sửa danh mục') // Tiêu đề modal
                     ->modalContent(
                         view('partials.admin_cat_post') // View tạo danh mục
                     ),

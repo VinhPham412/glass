@@ -13,7 +13,7 @@ class AdminCatPost extends Component
     public function render()
     {
         return view('livewire.admin-cat-post', [
-            'catposts' => CatPost::paginate(2),
+            'catposts' => CatPost::paginate(10),
         ]);
     }
 }
