@@ -46,7 +46,8 @@ class PostResource extends Resource
                     ->label('Tiêu đề')
                     ->required()
                     ->placeholder('Nhập tiêu đề bài viết')
-                    ->maxlength(255),
+                    ->maxlength(255)
+                    ->unique(ignoreRecord: true),
                 // thêm trường thumbnail là trường file 
                 Forms\Components\FileUpload::make('thumbnail')
                     ->label('Ảnh đại diện')

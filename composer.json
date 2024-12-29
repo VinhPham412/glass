@@ -6,15 +6,15 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "bezhansalleh/filament-shield": "^3.3",
         "filament/filament": "^3.2",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
-        "laravel/octane": "^2.6",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.5",
-        "spatie/laravel-query-builder": "^6.0",
-        "swoole/swoole": "*"
+        "spatie/laravel-permission": "^6.10",
+        "spatie/laravel-query-builder": "^6.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
