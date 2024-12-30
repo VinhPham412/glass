@@ -52,17 +52,14 @@ class UserResource extends Resource
                 //     ->label('Vai trò')
                 //     ->relationship('roles', 'name')
                 //     ->searchable(),
-                Forms\Components\Select::make('roles')
+                Forms\Components\CheckboxList::make('roles')
                     //Loại bỏ trường hợp super_admin
                     ->label('Vai trò')
-                    // ->relationship('roles', 'name')
-                    ->relationship('roles', 'name', function (\Illuminate\Database\Eloquent\Builder $query) {
-                        $query->where('name', '!=', 'super_admin'); // Loại bỏ super_admin khỏi danh sách
-                    })
-                    ->searchable()
-                    ->multiple(false) // Không cho phép chọn nhiều role
-                    ->preload()
-                    ->required(),
+                    ->relationship('roles', 'name')
+                    // ->relationship('roles', 'name', function (\Illuminate\Database\Eloquent\Builder $query) {
+                    //     $query->where('name', '!=', 'super_admin'); // Loại bỏ super_admin khỏi danh sách
+                    // })
+                    ->searchable(),
             ]);
     }
 

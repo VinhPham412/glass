@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit0bc6be6bad06d2a50025954c5061cb06
+class ComposerStaticInitc42f2872702d2939cd8d6e849fcbad97
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -444,8 +444,8 @@ class ComposerStaticInit0bc6be6bad06d2a50025954c5061cb06
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -501,8 +501,8 @@ class ComposerStaticInit0bc6be6bad06d2a50025954c5061cb06
         ),
         'League\\Uri\\' => 
         array (
-            0 => __DIR__ . '/..' . '/league/uri',
-            1 => __DIR__ . '/..' . '/league/uri-interfaces',
+            0 => __DIR__ . '/..' . '/league/uri-interfaces',
+            1 => __DIR__ . '/..' . '/league/uri',
         ),
         'League\\MimeTypeDetection\\' => 
         array (
@@ -741,6 +741,15 @@ class ComposerStaticInit0bc6be6bad06d2a50025954c5061cb06
         'App\\Filament\\Resources\\PostResource\\Pages\\EditPost' => __DIR__ . '/../..' . '/app/Filament/Resources/PostResource/Pages/EditPost.php',
         'App\\Filament\\Resources\\PostResource\\Pages\\ListPosts' => __DIR__ . '/../..' . '/app/Filament/Resources/PostResource/Pages/ListPosts.php',
         'App\\Filament\\Resources\\PostResource\\RelationManagers\\CatpostRelationManager' => __DIR__ . '/../..' . '/app/Filament/Resources/PostResource/RelationManagers/CatpostRelationManager.php',
+        'App\\Filament\\Resources\\RoleResource' => __DIR__ . '/../..' . '/app/Filament/Resources/RoleResource.php',
+        'App\\Filament\\Resources\\RoleResource\\Pages\\CreateRole' => __DIR__ . '/../..' . '/app/Filament/Resources/RoleResource/Pages/CreateRole.php',
+        'App\\Filament\\Resources\\RoleResource\\Pages\\EditRole' => __DIR__ . '/../..' . '/app/Filament/Resources/RoleResource/Pages/EditRole.php',
+        'App\\Filament\\Resources\\RoleResource\\Pages\\ListRoles' => __DIR__ . '/../..' . '/app/Filament/Resources/RoleResource/Pages/ListRoles.php',
+        'App\\Filament\\Resources\\RoleResource\\Pages\\ViewRole' => __DIR__ . '/../..' . '/app/Filament/Resources/RoleResource/Pages/ViewRole.php',
+        'App\\Filament\\Resources\\UserResource' => __DIR__ . '/../..' . '/app/Filament/Resources/UserResource.php',
+        'App\\Filament\\Resources\\UserResource\\Pages\\CreateUser' => __DIR__ . '/../..' . '/app/Filament/Resources/UserResource/Pages/CreateUser.php',
+        'App\\Filament\\Resources\\UserResource\\Pages\\EditUser' => __DIR__ . '/../..' . '/app/Filament/Resources/UserResource/Pages/EditUser.php',
+        'App\\Filament\\Resources\\UserResource\\Pages\\ListUsers' => __DIR__ . '/../..' . '/app/Filament/Resources/UserResource/Pages/ListUsers.php',
         'App\\Http\\Controllers\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/AdminController.php',
         'App\\Http\\Controllers\\CatPostController' => __DIR__ . '/../..' . '/app/Http/Controllers/CatPostController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -8815,9 +8824,9 @@ class ComposerStaticInit0bc6be6bad06d2a50025954c5061cb06
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit0bc6be6bad06d2a50025954c5061cb06::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit0bc6be6bad06d2a50025954c5061cb06::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit0bc6be6bad06d2a50025954c5061cb06::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitc42f2872702d2939cd8d6e849fcbad97::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitc42f2872702d2939cd8d6e849fcbad97::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInitc42f2872702d2939cd8d6e849fcbad97::$classMap;
 
         }, null, ClassLoader::class);
     }
