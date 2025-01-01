@@ -40,6 +40,9 @@ class FirstSeeder extends Seeder
         $admin_vinh->assignRole($superAdminRole);
         $admin_hieu->assignRole($superAdminRole);
 
+        // Gán full quyền cho 2 admin Vinh và Hiếu
+        
+
         // Tạo ra ra 3 danh mục bài viết
         CatPost::create([
             'title' => 'Thể thao',

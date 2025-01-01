@@ -28,10 +28,10 @@ class DashboardPanelProvider extends PanelProvider
             ->id('dashboard')
             ->path('dashboard')
             ->login()
-            // ->emailVerification()
-            // ->profile(isSimple: false)
+            ->emailVerification()
+            ->profile(isSimple: false)
             ->colors([
-                'primary' => Color::Purple,
+                'primary' => Color::Blue,
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\\Filament\\Pages')

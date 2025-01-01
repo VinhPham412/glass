@@ -37,6 +37,8 @@ class PostResource extends Resource implements HasShieldPermissions
     // đổi tên model từ PostResource thành Bài viết
     public static ?string $label = 'Bài viết';
 
+    protected static ?int $navigationSort = 2;
+
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
     public static function getPermissionPrefixes(): array
@@ -48,7 +50,6 @@ class PostResource extends Resource implements HasShieldPermissions
             'update',
             'delete',
             'delete_any',
-            'publish',
         ];
     }
 

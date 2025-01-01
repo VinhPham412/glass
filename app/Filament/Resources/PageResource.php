@@ -24,6 +24,8 @@ class PageResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
+    protected static ?int $navigationSort = 3;
+
     public static function canCreate(): bool
     {
         return false;
