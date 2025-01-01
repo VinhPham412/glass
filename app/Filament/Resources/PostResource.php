@@ -85,7 +85,7 @@ class PostResource extends Resource implements HasShieldPermissions
                         'data-image-transform-output-mime-type' => 'image/webp', // Tự động chuyển sang webp
                         'data-image-transform-output-quality' => '80', // Giảm chất lượng ảnh
                     ]),
-                // thêm trường mô tả là trường rich editor
+                // thêm trường mô tả là 1 rich editor
                 RichEditor::make('content')
                     ->label('Nội dung')
                     ->fileAttachmentsDisk('public')
@@ -137,7 +137,7 @@ class PostResource extends Resource implements HasShieldPermissions
                 Tables\Columns\TextColumn::make('title')
                     ->label('Tiêu đề')
                     ->sortable(
-                        // CHuỗi  nào dài hơn thì lớn hơn
+                        // Chuỗi nào dài hơn thì lớn hơn
                         query: function (Builder $query, string $direction): Builder {
                             return $query->orderByRaw('LENGTH(title) ' . $direction)
                                 ->orderBy('title', $direction);
@@ -247,9 +247,9 @@ class PostResource extends Resource implements HasShieldPermissions
             ->bulkActions([
                 BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                    BulkAction::make('Ẩn')
+                    BulkAction::make('Ẩn các bài viết vừa chọn')
                         ->action(fn(Collection $records) => $records->each->update(['status' => 'hide'])),
-                    BulkAction::make('Hiện')
+                    BulkAction::make('Hiện các bài viết vừa chọn')
                         ->action(fn(Collection $records) => $records->each->update(['status' => 'show'])),
 
                 ]),

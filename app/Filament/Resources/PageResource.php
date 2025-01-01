@@ -63,7 +63,7 @@ class PageResource extends Resource
                         'data-image-transform-output-mime-type' => 'image/webp', // Tự động chuyển sang webp
                         'data-image-transform-output-quality' => '80', // Giảm chất lượng ảnh
                     ]),
-                // thêm trường mô tả là trường rich editor
+                // thêm trường nội dung là 1 rich editor
                 RichEditor::make('content')
                     ->label('Nội dung')
                     ->fileAttachmentsDisk('public')

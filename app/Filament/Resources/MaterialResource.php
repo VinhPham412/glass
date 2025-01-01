@@ -19,13 +19,32 @@ class MaterialResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-puzzle-piece';
 
+    public static ?string $label = 'Chất liệu';
+
     protected static ?string $navigationGroup = 'Phân loại';
+
+    public static function getPermissionPrefixes(): array
+    {
+        return [
+            'view',
+            'view_any',
+            'create',
+            'update',
+            'delete',
+            'delete_any',
+        ];
+    }
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name')
+                    ->label('Chất liệu')
+                    ->required()
+                    ->placeholder('Nhập tên chất liệu')
+                    ->maxlength(255)
+                    ->unique(ignoreRecord: true),
             ]);
     }
 
@@ -33,13 +52,24 @@ class MaterialResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Tên chất liệu')
+                    ->sortable(
+                        // Chuỗi nào dài hơn thì lớn hơn
+                        query: function (Builder $query, string $direction): Builder {
+                            return $query->orderByRaw('LENGTH(name)' . $direction)
+                                ->orderBy('name', $direction);
+                        }
+                    )
+                    ->searchable(),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                // thêm action xóa
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
