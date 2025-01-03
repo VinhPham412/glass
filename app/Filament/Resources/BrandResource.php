@@ -26,17 +26,17 @@ class BrandResource extends Resource
 
     protected static ?string $navigationGroup = 'Phân loại';
 
-    public static function getPermissionPrefixes(): array
-    {
-        return [
-            'view',
-            'view_any',
-            'create',
-            'update',
-            'delete',
-            'delete_any',
-        ];
-    }
+    // public static function getPermissionPrefixes(): array
+    // {
+    //     return [
+    //         'view',
+    //         'view_any',
+    //         'create',
+    //         'update',
+    //         'delete',
+    //         'delete_any',
+    //     ];
+    // }
 
     public static function form(Form $form): Form
     {

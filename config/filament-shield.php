@@ -78,6 +78,11 @@ return [
         'resources' => [
             // 'RoleResource',
             // 'UserResource',
+            'BrandResource',
+            'MaterialResource',
+            'OriginResource',
+            'ShapeResource',
+            'StyleResource',
         ],
     ],
 

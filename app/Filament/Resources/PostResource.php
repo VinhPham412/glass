@@ -31,7 +31,7 @@ use Filament\Tables\Actions\ExportAction;
 use Filament\Tables\Actions\ViewAction;
 use BezhanSalleh\FilamentShield\Contracts\HasShieldPermissions;
 
-class PostResource extends Resource implements HasShieldPermissions
+class PostResource extends Resource 
 {
     protected static ?string $model = Post::class;
     // đổi tên model từ PostResource thành Bài viết
@@ -41,17 +41,17 @@ class PostResource extends Resource implements HasShieldPermissions
 
     protected static ?string $navigationIcon = 'heroicon-o-book-open';
 
-    public static function getPermissionPrefixes(): array
-    {
-        return [
-            'view',
-            'view_any',
-            'create',
-            'update',
-            'delete',
-            'delete_any',
-        ];
-    }
+    // public static function getPermissionPrefixes(): array
+    // {
+    //     return [
+    //         'view',
+    //         'view_any',
+    //         'create',
+    //         'update',
+    //         'delete',
+    //         'delete_any',
+    //     ];
+    // }
 
     public static function form(Form $form): Form
     {

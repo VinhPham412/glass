@@ -27,7 +27,37 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\TextInput::make('name')
+                    ->label('Tên sản phẩm')
+                    ->required()
+                    ->placeholder('Nhập tên sản phẩm')
+                    ->maxlength(255)
+                    ->unique(ignoreRecord: true),
+                Forms\Components\RichEditor::make('description')
+                    ->label('Mô tả')
+                    ->fileAttachmentsDisk('public')
+                    ->fileAttachmentsDirectory('uploads/')
+                    ->required()
+                    ->columnSpan('full'),
+                Forms\Components\Select::make('brand_id')
+                    ->label('Thương hiệu')
+                    ->options(fn() => \App\Models\Brand::pluck('name', 'id')->toArray())
+                    ->required()
+                    ->suffixAction(
+                        \Filament\Forms\Components\Actions\Action::make('Thêm thương hiệu')
+                            ->icon('heroicon-o-plus-circle')
+                            ->color('success')
+                            ->label('thương hiệu') // Đặt tên nút
+                            ->modalHeading('Chỉnh sửa thương hiệu') // Tiêu đề modal
+                            ->modalContent(
+                                view('partials.admin_brand') // View tạo thương hiệu
+                            )
+                            // bỏ nủt gửi trong modal ở filament 3x
+                            ->modalSubmitAction(false)
+                            ->stickyModalHeader(),
+
+                    ),
+
             ]);
     }
 
