@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Material;
+use Filament\Notifications\Notification;
 use Livewire\WithPagination;
 
 class AdminMaterial extends Component
@@ -20,9 +21,22 @@ class AdminMaterial extends Component
     }
 
     public function addmaterial(){
-        $this->validate([
-            'newmaterial' => 'required|min:3',
+        // Notification::create()
+        // ->title('Saved successfully')
+        // ->success()
+        // ->send();
+        $validate = $this->validate([
+            'newmaterial' => 'required|unique:materials,name',
         ]);
+
+        // if (!$validate) {
+        //     Notification::create()
+        //         ->message('Chất liệu lỗi !')
+        //         ->send();
+        //     return;
+        // }
+        
+
         Material::create([
             'name' => $this->newmaterial,
         ]);
