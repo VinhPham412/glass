@@ -5,23 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f6c1f6d-cdcd-4067-bcef-35f6da3657e8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f41396c7-37c2-4e18-b288-3e3e04cfeb00.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f41396c7-37c2-4e18-b288-3e3e04cfeb00/storage_v2/_src_/schema/glass.fAfeBQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f41396c7-37c2-4e18-b288-3e3e04cfeb00/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f41396c7-37c2-4e18-b288-3e3e04cfeb00/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f41396c7-37c2-4e18-b288-3e3e04cfeb00/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Filament/Resources/ProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Filament/Resources/ProductResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Filament/Resources/ProductResource/Pages/CreateProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Filament/Resources/ProductResource/Pages/CreateProduct.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Livewire/AdminBrand.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Livewire/AdminBrand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/PostPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/PostPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/ProductPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/ProductPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/RolePolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/RolePolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/FirstSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/FirstSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Livewire/AdminMaterial.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Livewire/AdminMaterial.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Livewire/AdminOrigin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Livewire/AdminOrigin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Livewire/AdminShape.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Livewire/AdminShape.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Livewire/AdminStyle.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Livewire/AdminStyle.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/admin-brand.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/admin-brand.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -278,7 +268,7 @@
       <workItem from="1735506112986" duration="189000" />
       <workItem from="1735506409494" duration="822000" />
       <workItem from="1735507281527" duration="2780000" />
-      <workItem from="1735939465875" duration="23366000" />
+      <workItem from="1735939465875" duration="31306000" />
     </task>
     <servers />
   </component>

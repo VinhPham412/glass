@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Models\Material;
+use Filament\Notifications\Notification;
 use Livewire\Component;
 use App\Models\Brand;
 use Livewire\WithPagination;
@@ -20,9 +22,16 @@ class AdminBrand extends Component
     }
 
     public function addbrand(){
-        $this->validate([
-            'newbrand' => 'required|min:3',
-        ]);
+        if (trim($this->newbrand) === '' || Material::where('name', $this->newbrand)->where('id', '!=', $this->id)->exists()) {
+            Notification::make()
+                ->title('Tên thương hiệu phải là duy nhất và không được để trống!')
+                ->danger()
+                ->iconColor('danger')
+                ->icon('heroicon-o-x-mark')
+                ->duration(3000)
+                ->body('Vui lòng nhập lại!')
+                ->send();
+        }
         Brand::create([
             'name' => $this->newbrand,
         ]);

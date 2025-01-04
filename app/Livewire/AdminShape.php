@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Models\Origin;
+use Filament\Notifications\Notification;
 use Livewire\Component;
 use App\Models\Shape;
 use Livewire\WithPagination;
@@ -20,9 +22,18 @@ class AdminShape extends Component
     }
 
     public function addshape(){
-        $this->validate([
-            'newshape' => 'required|min:3',
-        ]);
+        if (trim($this->newshape) === '' || Shape::where('name', $this->newshape)->where('id', '!=', $this->id)->exists()) {
+            Notification::make()
+                ->title('Tên hình dáng phải là duy nhất và không được để trống!')
+                ->danger()
+                ->iconColor('danger')
+                ->icon('heroicon-o-x-mark')
+                ->duration(3000)
+                ->body('Vui lòng nhập lại!')
+                ->send();
+
+            return;
+        }
         Shape::create([
             'name' => $this->newshape,
         ]);

@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Models\Shape;
+use Filament\Notifications\Notification;
 use Livewire\Component;
 use App\Models\Style;
 use Livewire\WithPagination;
@@ -20,9 +22,16 @@ class AdminStyle extends Component
     }
 
     public function addstyle(){
-        $this->validate([
-            'newstyle' => 'required|min:3',
-        ]);
+        if (trim($this->newstyle) === '' || Style::where('name', $this->newstyle)->where('id', '!=', $this->id)->exists()) {
+            Notification::make()
+                ->title('Tên phong cách phải là duy nhất và không được để trống!')
+                ->danger()
+                ->iconColor('danger')
+                ->icon('heroicon-o-x-mark')
+                ->duration(3000)
+                ->body('Vui lòng nhập lại!')
+                ->send();
+        }
         Style::create([
             'name' => $this->newstyle,
         ]);
