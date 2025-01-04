@@ -9,49 +9,44 @@ use Livewire\WithPagination;
 class AdminBrand extends Component
 {
     use WithPagination;
-    // public $newCatPost = '';
+    public $newbrand = '';
     public $listBrand = [];
 
-    public function mount(){
+    public function mount(): void
+    {
         foreach (Brand::all() as $brand) {
             $this->listBrand[$brand->id] = $brand->name;
         }
     }
 
-    // public function addCatPost()
-    // {
-    //     $this->validate([
-    //         'newCatPost' => 'required',
-    //     ]);
+    public function addbrand(){
+        $this->validate([
+            'newbrand' => 'required|min:3',
+        ]);
+        Brand::create([
+            'name' => $this->newbrand,
+        ]);
+        $this->newbrand = '';
+        $this->mount();
+    }
 
-    //     $catpost = CatPost::create([
-    //         'title' => $this->newCatPost,
-    //     ]);
+    public function editbrand($id){
+        $brand = Brand::find($id);
+        $brand->name = $this->listBrand[$id];
+        $brand->save();
+        $this->mount();
+    }
 
-    //     $this->listCatPost[$catpost->id] = $this->newCatPost;
-    //     $this->newCatPost = '';
-    // }
-
-    // public function editCatPost($id)
-    // {
-    //     $catpost = CatPost::find($id);
-    //     $catpost->update([
-    //         'title' => $this->listCatPost[$id],
-    //     ]);
-    // }
-
-    // public function deleteCatPost($id)
-    // {
-    //     $catpost = CatPost::find($id);
-    //     $catpost->delete();
-    // }
+    public function deletebrand($id){
+        Brand::find($id)->delete();
+        $this->mount();
+    }
 
     public function render()
     {
         return view('livewire.admin-brand', [
-            'brands' => Brand::paginate(10),
+            'brands' => Brand::paginate(5),
         ]);
     }
-
 
 }

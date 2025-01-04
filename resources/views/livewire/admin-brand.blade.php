@@ -32,13 +32,13 @@
                         <td class="px-6 py-4 flex justify-center">
                             <!-- Nút sửa -->
                             <button wire:click="editbrand({{ $brand->id }})"
-                                onclick="confirm('Bạn có chắc chắn muốn sửa thương hiệu bài viết này không (Nếu sửa sẽ sửa hết bài viết thuộc thương hiệu này)?') || event.stopImmediatePropagation()"
+                                onclick="confirm('Bạn có chắc chắn muốn sửa thương hiệu này không (Nếu sửa sẽ sửa hết thuộc thương hiệu này)?') || event.stopImmediatePropagation()"
                                 class="flex items-center bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded">
                                 <i class="fas fa-edit mr-2"></i> Sửa
                             </button>
                             <!-- Nút xóa -->
                             <button wire:click="deletebrand({{ $brand->id }})"
-                                onclick="confirm('Bạn có chắc chắn muốn xóa thương hiệu bài viết này không (Nếu xoá sẽ xoá hết bài viết thuộc thương hiệu này)?') || event.stopImmediatePropagation()"
+                                onclick="confirm('Bạn có chắc chắn muốn xóa thương hiệu này không (Nếu xoá sẽ xoá hết thuộc thương hiệu này)?') || event.stopImmediatePropagation()"
                                 class="flex items-center bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded">
                                 <i class="fas fa-trash-alt mr-2"></i> Xoá
                             </button>

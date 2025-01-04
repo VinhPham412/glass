@@ -22,7 +22,6 @@ class FirstSeeder extends Seeder
         // Tạo vai trò "super_admin" nếu chưa tồn tại
         $superAdminRole = Role::firstOrCreate(['name' => 'super_admin']);
 
-        
         // Tạo ra 2 user tên Vinh và Hiếu
         $admin_vinh = User::create([
             'name' => 'Vinh',
@@ -41,7 +40,7 @@ class FirstSeeder extends Seeder
         $admin_hieu->assignRole($superAdminRole);
 
         // Gán full quyền cho 2 admin Vinh và Hiếu
-        
+
 
         // Tạo ra ra 3 danh mục bài viết
         CatPost::create([
@@ -60,12 +59,12 @@ class FirstSeeder extends Seeder
         // Tạo ra 10 bài viết
         for ($i = 0; $i <= 100; $i++) {
             Post::create([
-            'title' => 'Bài viết số ' . $i,
-            'content' => 'Nội dung bài viết số ' . $i,
-            'thumbnail' => 'https://picsum.photos/200/300',
-            'catpost_id' => rand(1, 3),
-            'user_id' => rand(1, 2),
-            'updated_at' => now()->setDate(2024, rand(11, 12), rand(1, 30))->setTime(rand(0, 23), rand(0, 59), rand(0, 59)),
+                'title' => 'Bài viết số ' . $i,
+                'content' => 'Nội dung bài viết số ' . $i,
+                'thumbnail' => 'https://picsum.photos/200/300',
+                'catpost_id' => rand(1, 3),
+                'user_id' => rand(1, 2),
+                'updated_at' => now()->setDate(2024, rand(11, 12), rand(1, 30))->setTime(rand(0, 23), rand(0, 59), rand(0, 59)),
             ]);
         }
 
@@ -90,6 +89,47 @@ class FirstSeeder extends Seeder
             'thumbnail' => 'https://picsum.photos/200/300',
             'user_id' => rand(1, 2),
         ]);
+
+        // Tạo ra 3 thương hiệu, 2 chất liệu, 4 xuất xứ, 3 kiểu dáng, 2 phong cách
+        $brands = ['Gucci', 'Ray-Ban', 'Oakley'];
+        foreach ($brands as $brand) {
+            \App\Models\Brand::create(['name' => $brand]);
+        }
+
+        $materials = ['Nhựa', 'Kim loại'];
+        foreach ($materials as $material) {
+            \App\Models\Material::create(['name' => $material]);
+        }
+
+        $origins = ['Ý', 'Mỹ', 'Nhật Bản', 'Trung Quốc'];
+        foreach ($origins as $origin) {
+            \App\Models\Origin::create(['name' => $origin]);
+        }
+
+        $styles = ['Mắt mèo', 'Phi công', 'Hình vuông'];
+        foreach ($styles as $style) {
+            \App\Models\Style::create(['name' => $style]);
+        }
+
+        $shapes = ['Tròn', 'Vuong', 'Chữ nhật'];
+        foreach ($shapes as $shape) {
+            \App\Models\Shape::create(['name' => $shape]);
+        }
+
+
+        // Tạo ra 10 sản phẩm kính
+        for ($i = 1; $i <= 10; $i++) {
+            $product = \App\Models\Product::create([
+                'name' => 'Kính ' . $i,
+                'description' => 'Mô tả chi tiết cho Kính ' . $i,
+                'origin_id' => \App\Models\Origin::inRandomOrder()->first()->id,
+                'material_id' => \App\Models\Material::inRandomOrder()->first()->id,
+                'style_id' => \App\Models\Style::inRandomOrder()->first()->id,
+                'shape_id' => \App\Models\Shape::inRandomOrder()->first()->id,
+                'brand_id' => \App\Models\Brand::inRandomOrder()->first()->id,
+            ]);
+        }
+
 
     }
 }
