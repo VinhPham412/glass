@@ -26,12 +26,6 @@ class Post extends Model
             if ($post->thumbnail) {
                 Storage::disk('public')->delete($post->thumbnail);
             }
-
-            // Xóa tất cả ảnh liên quan
-            foreach ($post->post_images as $image) {
-                Storage::disk('public')->delete($image->link); // Xóa file ảnh
-                $image->delete(); // Xóa khỏi cơ sở dữ liệu
-            }
         });
 
         static::saved(function ($post) {
@@ -39,16 +33,7 @@ class Post extends Model
             preg_match_all('/uploads\/[a-zA-Z0-9\-_]+\.(jpg|jpeg|png|gif|webp)/', $post->content, $matches);
             $imagePaths = $matches[0] ?? [];
 
-            // Lưu các ảnh vào bảng post_images
-            foreach ($imagePaths as $path) {
-                \App\Models\PostImage::firstOrCreate([
-                    'post_id' => $post->id,
-                    'link' => str_replace('/storage/', '', $path), // Chuyển từ URL sang đường dẫn file
-                ]);
-            }
 
-            // Xóa metadata ảnh không còn trong nội dung
-            $post->post_images()->whereNotIn('link', $imagePaths)->delete();
         });
     }
 
@@ -60,10 +45,5 @@ class Post extends Model
     public function catpost()
     {
         return $this->belongsTo(Catpost::class);
-    }
-
-    public function post_images()
-    {
-        return $this->hasMany(PostImage::class);
     }
 }

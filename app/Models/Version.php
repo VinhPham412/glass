@@ -13,8 +13,8 @@ class Version extends Model
         'price',
         'stock',
         'product_id',
-        'size_id',
-        'color_id',
+        'color',
+        'size'
     ];
 
     public function product()
@@ -32,15 +32,6 @@ class Version extends Model
         return $this->hasMany(CartItem::class);
     }
 
-    public function size()
-    {
-        return $this->belongsTo(Size::class);
-    }
-
-    public function color()
-    {
-        return $this->belongsTo(Color::class);
-    }
 
     public function images()
     {

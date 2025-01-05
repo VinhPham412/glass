@@ -2,10 +2,10 @@
 
 namespace App\Livewire;
 
-use App\Models\Shape;
-use Filament\Notifications\Notification;
+use App\Models\Origin;
 use Livewire\Component;
 use App\Models\Style;
+use Filament\Notifications\Notification;
 use Livewire\WithPagination;
 
 class AdminStyle extends Component
@@ -21,8 +21,9 @@ class AdminStyle extends Component
         }
     }
 
-    public function addstyle(){
-        if (trim($this->newstyle) === '' || Style::where('name', $this->newstyle)->where('id', '!=', $this->id)->exists()) {
+    public function addstyle()
+    {
+        if (trim($this->newstyle) === '' || Style::where('name', $this->newstyle)->exists()) {
             Notification::make()
                 ->title('Tên phong cách phải là duy nhất và không được để trống!')
                 ->danger()
@@ -31,12 +32,22 @@ class AdminStyle extends Component
                 ->duration(3000)
                 ->body('Vui lòng nhập lại!')
                 ->send();
+            return;
         }
-        Style::create([
+
+        $newStyle = Style::create([
             'name' => $this->newstyle,
         ]);
         $this->newstyle = '';
         $this->mount();
+
+        Notification::make()
+            ->title('Tạo mới phong cách '.$newStyle->name.' thành công!')
+            ->success()
+            ->iconColor('success')
+            ->icon('heroicon-o-check')
+            ->duration(3000)
+            ->send();
     }
 
     public function editstyle($id){
@@ -47,6 +58,14 @@ class AdminStyle extends Component
     }
 
     public function deletestyle($id){
+        Notification::make()
+            ->title('Đã xóa phong cách '.Style::find($id)->name.' thành công!')
+            ->success()
+            ->iconColor('success')
+            ->icon('heroicon-o-check')
+            ->duration(3000)
+            ->send();
+
         Style::find($id)->delete();
         $this->mount();
     }

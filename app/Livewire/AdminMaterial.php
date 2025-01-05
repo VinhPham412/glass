@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Origin;
 use Livewire\Component;
 use App\Models\Material;
 use Filament\Notifications\Notification;
@@ -23,7 +24,7 @@ class AdminMaterial extends Component
 
     public function addmaterial()
     {
-        if (trim($this->newmaterial) === '' || Material::where('name', $this->newmaterial)->where('id', '!=', $this->id)->exists()) {
+        if (trim($this->newmaterial) === '' || Material::where('name', $this->newmaterial)->exists()) {
             Notification::make()
                 ->title('Tên chất liệu phải là duy nhất và không được để trống!')
                 ->danger()
@@ -32,14 +33,22 @@ class AdminMaterial extends Component
                 ->duration(3000)
                 ->body('Vui lòng nhập lại!')
                 ->send();
+            return;
         }
-
-
-        Material::create([
+    
+        $newMaterial = Material::create([
             'name' => $this->newmaterial,
         ]);
         $this->newmaterial = '';
         $this->mount();
+
+        Notification::make()
+            ->title('Tạo mới chất liệu '.$newMaterial->name.' thành công!')
+            ->success()
+            ->iconColor('success')
+            ->icon('heroicon-o-check')
+            ->duration(3000)
+            ->send();
     }
 
     public function editmaterial($id)
@@ -52,6 +61,14 @@ class AdminMaterial extends Component
 
     public function deletematerial($id)
     {
+        Notification::make()
+            ->title('Đã xóa chất liệu '.Material::find($id)->name.' thành công!')
+            ->success()
+            ->iconColor('success')
+            ->icon('heroicon-o-check')
+            ->duration(3000)
+            ->send();
+
         Material::find($id)->delete();
         $this->mount();
     }

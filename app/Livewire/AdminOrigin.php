@@ -35,16 +35,23 @@ class AdminOrigin extends Component
                 ->send();
             return;
         }
-    
-        Origin::create([
+
+        $newOrigin = Origin::create([
             'name' => $this->neworigin,
         ]);
         $this->neworigin = '';
         $this->mount();
+
+        Notification::make()
+            ->title('Tạo mới xuất xứ '.$newOrigin->name.' thành công!')
+            ->success()
+            ->iconColor('success')
+            ->icon('heroicon-o-check')
+            ->duration(3000)
+            ->send();
     }
 
-    public
-    function editorigin($id)
+    public function editorigin($id)
     {
         $origin = Origin::find($id);
         $origin->name = $this->listOrigin[$id];
@@ -52,15 +59,21 @@ class AdminOrigin extends Component
         $this->mount();
     }
 
-    public
-    function deleteorigin($id)
+    public function deleteorigin($id)
     {
+        Notification::make()
+            ->title('Đã xóa xuất xứ '.Origin::find($id)->name.' thành công!')
+            ->success()
+            ->iconColor('success')
+            ->icon('heroicon-o-check')
+            ->duration(3000)
+            ->send();
+
         Origin::find($id)->delete();
         $this->mount();
     }
 
-    public
-    function render()
+    public function render()
     {
         return view('livewire.admin-origin', [
             'origins' => Origin::paginate(5),

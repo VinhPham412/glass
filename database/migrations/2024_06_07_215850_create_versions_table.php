@@ -18,13 +18,14 @@ return new class extends Migration
             // Số lượng sản phẩm
             $table->unsignedInteger('stock')->default(0);
 
+            $table->string('size');
+            $table->string('color');
+
             $table->unsignedBigInteger('product_id');
-            $table->unsignedBigInteger('size_id');
-            $table->unsignedBigInteger('color_id');
+
 
             $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
-            $table->foreign('size_id')->references('id')->on('sizes')->onDelete('cascade');
-            $table->foreign('color_id')->references('id')->on('colors')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

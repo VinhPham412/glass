@@ -3,9 +3,9 @@
 namespace App\Livewire;
 
 use App\Models\Origin;
-use Filament\Notifications\Notification;
 use Livewire\Component;
 use App\Models\Shape;
+use Filament\Notifications\Notification;
 use Livewire\WithPagination;
 
 class AdminShape extends Component
@@ -21,8 +21,9 @@ class AdminShape extends Component
         }
     }
 
-    public function addshape(){
-        if (trim($this->newshape) === '' || Shape::where('name', $this->newshape)->where('id', '!=', $this->id)->exists()) {
+    public function addshape()
+    {
+        if (trim($this->newshape) === '' || Shape::where('name', $this->newshape)->exists()) {
             Notification::make()
                 ->title('Tên hình dáng phải là duy nhất và không được để trống!')
                 ->danger()
@@ -31,14 +32,22 @@ class AdminShape extends Component
                 ->duration(3000)
                 ->body('Vui lòng nhập lại!')
                 ->send();
-
             return;
         }
-        Shape::create([
+
+        $newShape = Shape::create([
             'name' => $this->newshape,
         ]);
         $this->newshape = '';
         $this->mount();
+
+        Notification::make()
+            ->title('Tạo mới kiểu dáng '.$newShape->name.' thành công!')
+            ->success()
+            ->iconColor('success')
+            ->icon('heroicon-o-check')
+            ->duration(3000)
+            ->send();
     }
 
     public function editshape($id){
@@ -49,6 +58,14 @@ class AdminShape extends Component
     }
 
     public function deleteshape($id){
+        Notification::make()
+            ->title('Đã xóa kiểu dáng '.Shape::find($id)->name.' thành công!')
+            ->success()
+            ->iconColor('success')
+            ->icon('heroicon-o-check')
+            ->duration(3000)
+            ->send();
+
         Shape::find($id)->delete();
         $this->mount();
     }
