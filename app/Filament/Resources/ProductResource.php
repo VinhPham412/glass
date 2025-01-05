@@ -27,6 +27,10 @@ use Filament\Tables\Actions\ActionGroup;
 use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Actions\EditAction;
 use Filament\Tables\Actions\ViewAction;
+use Filament\Forms\Components\Repeater;
+use Filament\Support\RawJs;
+use Illuminate\Support\Facades\DB;
+
 
 
 class ProductResource extends Resource
@@ -144,6 +148,127 @@ class ProductResource extends Resource
                             ->closeModalByClickingAway(true)
                     )
                     ->columnSpan('1'),
+                Forms\Components\Repeater::make('versions')
+                    ->label('Phiên bản')
+                    ->schema([
+//                        Forms\Components\FileUpload::make('images')
+//                            ->label('Ảnh phiên bản')
+//                            ->image()
+//                            ->multiple()
+//                            ->maxFiles(5) // Giảm số lượng file tối đa để tránh quá tải
+//                            ->disk('public')
+//                            ->directory('uploads/')
+//                            ->deleteUploadedFileUsing(function ($file) {
+//                                Storage::disk('public')->delete($file);
+//                            })
+//                            ->imagePreviewHeight('100')
+//                            ->loadingIndicatorPosition('left')
+//                            ->panelAspectRatio('16:9')
+//                            ->panelLayout('grid')
+//                            ->imageResizeMode('cover')
+//                            ->imageResizeTargetWidth('100')
+//                            ->imageResizeTargetHeight('100')
+//                            ->imagePreviewHeight('100')
+//                            ->removeUploadedFileButtonPosition('top-right')
+//                            ->uploadButtonPosition('left')
+//                            ->uploadProgressIndicatorPosition('bottom')
+//                            ->maxSize(5120) // 5MB
+//                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+//                            ->helperText('Tải lên tối đa 5 ảnh. Mỗi ảnh không quá 5MB.')
+//                            ->columnSpan('1'),
+                        Forms\Components\Repeater::make('images')
+                            ->label('Ảnh phiên bản')
+                            ->helperText('Mỗi ảnh không quá 5MB.')
+                            ->schema([
+                                Forms\Components\FileUpload::make('link')
+                                    ->label('Ảnh phiên bản')
+                                    ->image()
+//                                    ->maxFiles(1) // Giảm số lượng file tối đa để tránh quá tải
+                                    ->disk('public')
+                                    ->directory('uploads/')
+                                    ->deleteUploadedFileUsing(function ($file) {
+                                        Storage::disk('public')->delete($file);
+                                    })
+//                                    ->imagePreviewHeight('50')
+//                                    ->loadingIndicatorPosition('left')
+//                                    ->panelAspectRatio('16:9')
+//                                    ->panelLayout('grid')
+//                                    ->imageResizeMode('cover')
+//                                    ->imageResizeTargetWidth('50')
+//                                    ->imageResizeTargetHeight('50')
+//                                    ->imagePreviewHeight('50')
+//                                    ->removeUploadedFileButtonPosition('top-right')
+//                                    ->uploadButtonPosition('left')
+//                                    ->uploadProgressIndicatorPosition('bottom')
+                                    ->maxSize(5120) // 5MB
+                                    ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
+                                    ->imageEditor()
+                                    ->columnSpan('1'),
+                            ])
+                            ->columns([
+                                'sm' => 1,
+                                'lg' => 1,
+                            ])
+                            ->columnSpan('4')
+                            ->cloneable()
+                            ->reorderableWithButtons()
+                            ->relationship()
+                            ->grid(4),
+                        Forms\Components\TextInput::make('price')
+                            ->label('Giá')
+                            ->required()
+                            ->numeric()
+                            ->step(1000)
+                            ->inputMode('decimal')
+                            ->mask(RawJs::make('$money($input)'))
+                            ->prefix('vnd')
+                            ->stripCharacters(','),
+                        Forms\Components\TextInput::make('stock')
+                            ->label('Tồn kho')
+                            ->required(),
+                        Forms\Components\Select::make('size')
+                            ->label('Kích thước')
+                            ->options([
+                                'S' => 'S',
+                                'M' => 'M',
+                                'L' => 'L',
+                                'XL' => 'XL',
+                            ])
+                            ->required(),
+                        Forms\Components\Select::make('color')
+                            ->label('Màu sắc')
+                            ->options([
+                                'Đỏ' => 'Đỏ',
+                                'Vàng' => 'Vàng',
+                                'Trắng' => 'Trắng',
+                                'Cam' => 'Cam',
+                                'Hồng' => 'Hồng',
+                                'Tím' => 'Tím',
+                                'Xanh lá' => 'Xanh lá',
+                                'Đen' => 'Đen',
+                                'Xanh dương' => 'Xanh dương',
+                                'Xám' => 'Xám',
+                                'Nâu' => 'Nâu',
+                                'Hồng đậm' => 'Hồng đậm',
+                                'Xanh rêu' => 'Xanh rêu',
+                                'Xanh lam' => 'Xanh lam',
+                                'Xanh ngọc' => 'Xanh ngọc',
+                                'Xanh lục' => 'Xanh lục',
+                                'Xanh đen' => 'Xanh đen',
+                            ])
+                            ->required(),
+                    ])
+                    ->columns([
+                        'sm' => 1,
+                        'lg' => 8,
+                    ])
+                    ->columnSpan('full')
+                    ->cloneable()
+                    ->reorderableWithButtons()
+                    ->relationship()
+                    ->collapsed()
+                ,
+
             ])
             ->columns([
                 'sm' => 2,
@@ -165,7 +290,7 @@ class ProductResource extends Resource
                         }
                     )
                     ->searchable()
-                    ,
+                ,
                 Tables\Columns\TextColumn::make('brand.name')
                     ->label('Thương hiệu')
                     ->sortable()
@@ -195,7 +320,8 @@ class ProductResource extends Resource
                     ->sum('versions', 'stock')
                     ->label('Tồn kho')
                     ->sortable()
-                    ->toggleable(),
+                    ->toggleable()
+                    ->default(0),
             ])
             ->filters([
                 Filters\SelectFilter::make('brand_id')
