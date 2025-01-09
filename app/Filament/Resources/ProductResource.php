@@ -30,7 +30,7 @@ use Filament\Tables\Actions\ViewAction;
 use Filament\Forms\Components\Repeater;
 use Filament\Support\RawJs;
 use Illuminate\Support\Facades\DB;
-
+use App\Forms\Components\CustomTagsInput;
 
 
 class ProductResource extends Resource
@@ -264,10 +264,15 @@ class ProductResource extends Resource
                     ])
                     ->columnSpan('full')
                     ->cloneable()
+                    ->reorderableWithDragAndDrop()
                     ->reorderableWithButtons()
                     ->relationship()
                     ->collapsed()
+                    ->reorderable()
                 ,
+                CustomTagsInput::make('cats')
+                ->relationship()
+
 
             ])
             ->columns([
