@@ -1,6 +1,9 @@
 @extends ( 'layouts.shop' )
 
 @section ( 'content' )
- hêlllo
+
+    <livewire:navbar>
+
+ @include('component.shop.hero')
 
 @endsection
