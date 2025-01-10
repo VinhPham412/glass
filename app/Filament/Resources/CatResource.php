@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\CatResource\Pages;
 use App\Filament\Resources\CatResource\RelationManagers;
+use App\Forms\Components\CustomTagsInput;
 use App\Models\Cat;
 use App\Models\Promotion;
 use Filament\Forms;
@@ -34,12 +35,18 @@ class CatResource extends Resource
                 ->placeholder('Nhập tên danh mục')
                 ->required(),
                 Forms\Components\Select::make('promotion_id')
-                ->label('Chương trình khuyến mãi')
-                // lấy ra danh sách chương trình khuyến mãi và có một tùy chọn không khuến mãi và đó là mặc định
-                ->options(
-                    Promotion::all()->pluck('name', 'id')->toArray()
-                )
-
+                    ->label('Chương trình khuyến mãi')
+                    ->options(function () {
+                        $promotions = Promotion::all()->pluck('name', 'id')->toArray();
+                        return [null => 'Không áp dụng khuyến mãi'] + $promotions;
+                    })
+                    ->default(null)
+                    ->placeholder('Chọn chương trình khuyến mãi')
+                    ->searchable(),
+                CustomTagsInput::make('products')
+                    ->label('Sản phẩm')
+                    ->relationship()
+                    ->required(),
             ]);
     }
 
@@ -47,7 +54,11 @@ class CatResource extends Resource
     {
         return $table
             ->columns([
-                //
+                Tables\Columns\TextColumn::make('name')
+                    ->label('Tên'),
+                Tables\Columns\TextColumn::make('promotion.name')
+                    ->label('Chương trình khuyến mãi')
+                    ->default('Không áp dụng khuyến mãi')
             ])
             ->filters([
                 //

@@ -271,7 +271,8 @@ class ProductResource extends Resource
                     ->reorderable()
                 ,
                 CustomTagsInput::make('cats')
-                ->relationship()
+                    ->label('Danh mục')
+                    ->relationship()
 
 
             ])
@@ -296,6 +297,20 @@ class ProductResource extends Resource
                     )
                     ->searchable()
                 ,
+                Tables\Columns\ImageColumn::make('versions.images.link')
+                    ->label('Ảnh')
+                    ->state(function ($record) {
+                        // Lấy phiên bản đầu tiên
+                        $firstVersion = $record->versions()->first();
+                        if ($firstVersion) {
+                            // Lấy ảnh đầu tiên của phiên bản đầu tiên
+                            $firstImage = $firstVersion->images()->first();
+                            return $firstImage ? $firstImage->link : null;
+                        }
+                        return null;
+                    })
+                    ->circular()
+                    ->defaultImageUrl(url('https://robohash.org/anh_rong')) ,// Thêm ảnh mặc định nếu không có ảnh
                 Tables\Columns\TextColumn::make('brand.name')
                     ->label('Thương hiệu')
                     ->sortable()

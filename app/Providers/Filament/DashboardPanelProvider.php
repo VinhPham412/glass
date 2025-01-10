@@ -28,6 +28,7 @@ class DashboardPanelProvider extends PanelProvider
             ->id('dashboard')
             ->path('dashboard')
             ->login()
+            ->brandLogo(asset('images/logo_and_word.webp'))
             ->emailVerification()
             ->profile(isSimple: false)
             ->colors([
