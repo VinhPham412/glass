@@ -2,8 +2,36 @@
 
 @section ( 'content' )
 
-    <livewire:navbar>
+    @include('component.shop.hero')
 
- @include('component.shop.hero')
+    @include('component.shop.brand')
+
+    @include('component.shop.cat')
+
+    @include('component.shop.icon_section')
+
+    @include('component.shop.features')
+
+    @include('component.shop.faq')
+
+    @include('component.shop.blog')
+
+    @include('component.shop.testimonials')
+
+    @include('component.shop.stats')
+
+    @include('component.shop.card_section')
+
+    @include('component.shop.cilent')
+
+    @include('component.shop.galery')
+
+    @include('component.shop.timeline')
+
+    @include('component.shop.contact')
+
+    @include('component.shop.logo_section')
+
+
 
 @endsection
