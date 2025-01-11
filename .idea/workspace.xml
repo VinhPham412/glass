@@ -6,21 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="9f6c1f6d-cdcd-4067-bcef-35f6da3657e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/_metadata.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/axios.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/chunk-PZ5AY32C.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/chunk-PZ5AY32C.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/flowbite.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/flowbite.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.vite/deps/flowbite.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.vite/deps/flowbite.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/component/shop/hero.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/shop/hero.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/component/shop/navbar.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/shop.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/store_front.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/store_front.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/hot" beforeDir="false" afterPath="$PROJECT_DIR$/public/hot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/components/shop/navbar.blade.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
@@ -284,7 +272,9 @@
       <workItem from="1736489004982" duration="41000" />
       <workItem from="1736497309973" duration="160000" />
       <workItem from="1736497488225" duration="5806000" />
-      <workItem from="1736560430816" duration="9553000" />
+      <workItem from="1736560430816" duration="10222000" />
+      <workItem from="1736580330622" duration="2060000" />
+      <workItem from="1736582566366" duration="5702000" />
     </task>
     <servers />
   </component>

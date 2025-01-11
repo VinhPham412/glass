@@ -11,4 +11,14 @@ class ShopController extends Controller
     {
         return view('main.store_front');
     }
+
+    public function catfilter()
+    {
+        return view('main.catfilter');
+    }
+
+    public function product_overview($id)
+    {
+        return view('main.product_overview');
+    }
 }

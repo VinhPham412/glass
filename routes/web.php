@@ -10,3 +10,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[ShopController::class, 'index'])->name('shop.index');
 
 Route::get('/catfilter',[ShopController::class, 'catfilter'])->name('shop.catfilter');
+
+Route::get('/product_overview/{id}',[ShopController::class, 'product_overview'])->name('shop.product_overview.blade.php');
