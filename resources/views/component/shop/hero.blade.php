@@ -8,11 +8,8 @@
     <section class="overflow-hidden bg-white dark:bg-transparent">
         <div class="relative mx-auto max-w-5xl px-6 py-28 lg:py-24">
             <div class="relative z-10 mx-auto max-w-2xl text-center">
-                <h1 class="text-title text-balance text-4xl font-semibold md:text-5xl lg:text-6xl">Modern Software testing reimagined</h1>
-                <p class="text-body mx-auto mt-8 max-w-2xl text-xl">Officiis laudantium excepturi ducimus rerum dignissimos, and tempora nam vitae, excepturi ducimus iste provident dolores.</p>
-{{--                <a href="" class="btn variant-neutral sz-md mx-auto mt-8 w-fit">--}}
-{{--                    <span class="btn-label">Start Building</span>--}}
-{{--                </a>--}}
+                <h1 class="text-title text-balance text-4xl font-semibold md:text-5xl lg:text-6xl">Khám phá thế giới qua đôi mắt của bạn</h1>
+                <p class="text-body mx-auto mt-8 max-w-2xl text-xl">Chúng tôi cung cấp các loại kính mắt chất lượng cao, phù hợp với mọi phong cách và nhu cầu, giúp bạn nhìn rõ và tự tin hơn trong cuộc sống.</p>
             </div>
         </div>
         <div class="mx-auto -mt-16 max-w-7xl">
@@ -26,8 +23,8 @@
                         <div class="absolute inset-0 z-[2] h-full w-full items-center px-5 py-24 [--layer-color:theme(colors.white)] [background:radial-gradient(125%_125%_at_50%_10%,transparent_40%,var(--layer-color)_100%)] dark:[--layer-color:theme(colors.gray.950)]"></div>
                         <div class="absolute inset-0 z-[2] h-full w-full items-center px-5 py-24 [--layer-color:theme(colors.white)] [background:radial-gradient(125%_125%_at_50%_10%,transparent_40%,var(--layer-color)_100%)] dark:[--layer-color:theme(colors.gray.950)]"></div>
 
-                        <img class="rounded-card relative z-[1] border dark:hidden" src="https://ui.tailus.io/images/showcase/card.png" alt="tailus ui hero section" width="" height="" />
-                        <img class="rounded-card relative z-[1] hidden border dark:block" src="https://ui.tailus.io/images/showcase/card-layout-dark.webp" alt="tailus ui hero section" width="" height="" />
+                        <img class="rounded-card relative z-[1] border dark:hidden" src="https://cdn.kinhmatlily.com/lily01/2024/11/banner%20web%20(1872%20x%20670%20px)%20(1)-1732768591000.png" alt="Bộ sưu tập kính mắt" width="" height="" />
+                        <img class="rounded-card relative z-[1] hidden border dark:block" src="https://ui.tailus.io/images/showcase/card-layout-dark.webp" alt="Bộ sưu tập kính mắt - phiên bản tối" width="" height="" />
                     </div>
                 </div>
             </div>

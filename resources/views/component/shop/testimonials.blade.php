@@ -78,7 +78,8 @@
                     </p>
 
                     <p class="text-xl font-medium italic text-gray-800 md:text-2xl md:leading-normal xl:text-3xl xl:leading-normal dark:text-neutral-200">
-                        "Nói Glass.com thay đổi cuộc sống của tôi là điều quá nhỏ, doanh thu tăng gấp 3 và tôi lấy lại được cuộc sống của mình."
+                        "Nói Glass.com thay đổi cuộc sống của tôi là điều quá nhỏ.
+                        Nó giúp tôi từ người xấu trai trở nên đẹp trai, từ nghèo thành giàu, từ đau đau trở nên yên tâm."
                     </p>
                 </div>
 

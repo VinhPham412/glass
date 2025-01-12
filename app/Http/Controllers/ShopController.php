@@ -21,4 +21,9 @@ class ShopController extends Controller
     {
         return view('main.product_overview');
     }
+
+    public function test()
+    {
+        return view('main.test');
+    }
 }
