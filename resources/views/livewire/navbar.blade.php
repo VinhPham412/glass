@@ -86,7 +86,6 @@
                             <span class="sr-only">Search</span>
                         </button>
 
-
                         <!-- Light dark mode toggle -->
                         <div class="hs-dropdown">
                             <button id="hs-dropdown-dark-mode" type="button"
@@ -135,6 +134,10 @@
 
                         <!-- Giỏ hàng -->
                         <button type="button"
+                                data-drawer-target="drawer-cart" data-drawer-show="drawer-cart"
+                                aria-controls="drawer-cart"
+                                data-drawer-placement="right" data-drawer-backdrop="false"
+                                data-drawer-body-scrolling="true"
                                 class="size-[38px] relative inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700">
                             <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -380,6 +383,55 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Drawer  cart-->
+    <div id="drawer-cart" class="fixed top-0 right-0 z-50 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-80 md:w-96 dark:bg-gray-800" tabindex="-1" aria-labelledby="drawer-right-label">
+        <h5 id="drawer-right-label" class="inline-flex items-center mb-4 text-lg font-semibold text-gray-700 dark:text-gray-300">
+            <svg class="w-6 h-6 mr-2" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 000-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"></path>
+            </svg>
+            Giỏ hàng
+        </h5>
+        <button type="button" data-drawer-hide="drawer-cart" aria-controls="drawer-cart" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-2 absolute top-2.5 right-2.5 dark:hover:bg-gray-600 dark:hover:text-white">
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="sr-only">Đóng giỏ hàng</span>
+        </button>
+        <div class="py-4">
+            <ul class="space-y-4">
+                <li class="flex justify-between items-center">
+                    <div class="flex items-center space-x-4">
+                        <img class="w-12 h-12 rounded-full" src="/path-to-product-image.jpg" alt="Product image">
+                        <div>
+                            <p class="text-sm font-medium text-gray-900 dark:text-white">Tên sản phẩm</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">$19.99</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="px-2 py-1 text-sm font-medium text-gray-900 bg-gray-200 rounded dark:bg-gray-700 dark:text-white">-</button>
+                        <span class="text-sm font-medium text-gray-900 dark:text-white">1</span>
+                        <button class="px-2 py-1 text-sm font-medium text-gray-900 bg-gray-200 rounded dark:bg-gray-700 dark:text-white">+</button>
+                    </div>
+                    <button type="button" class="text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-500">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M6 2a1 1 0 000 2h8a1 1 0 100-2H6zm2 4a1 1 0 00-1 1v10a1 1 0 002 0V7a1 1 0 00-1-1zm4 0a1 1 0 00-1 1v10a1 1 0 102 0V7a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </li>
+                <!-- Thêm các sản phẩm khác tương tự -->
+            </ul>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gray-50 dark:bg-gray-800">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-lg font-bold text-gray-900 dark:text-white">Tổng cộng:</span>
+                <span class="text-lg font-bold text-gray-900 dark:text-white">$19.99</span>
+            </div>
+            <button class="w-full px-5 py-3 text-sm font-medium text-center text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-700 dark:hover:bg-blue-800 dark:focus:ring-blue-900">
+                Thanh toán
+            </button>
         </div>
     </div>
 

@@ -8,6 +8,8 @@
 
     @include('component.shop.cat')
 
+    @include('component.shop.card_section')
+
     @include('component.shop.icon_section')
 
     @include('component.shop.features')
@@ -19,8 +21,6 @@
     @include('component.shop.testimonials')
 
     @include('component.shop.stats')
-
-    @include('component.shop.card_section')
 
     @include('component.shop.cilent')
 
