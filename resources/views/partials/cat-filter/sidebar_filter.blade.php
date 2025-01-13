@@ -32,7 +32,7 @@
         </div>
 
         <!-- Price Range -->
-        <div x-data="{ price: 0, min: 0, max: 1000 }">
+        <div x-data="{ price: 0, min: {{ $min_price  }}, max: {{ $max_price  }} }">
             <h3 class="font-medium text-gray-800 dark:text-white mb-3">Khoảng giá</h3>
             <div class="relative">
                 <input

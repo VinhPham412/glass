@@ -9,6 +9,7 @@ use App\Models\Origin;
 use App\Models\Product;
 use App\Models\Shape;
 use App\Models\Style;
+use App\Models\Version;
 use Livewire\Component;
 
 class CatFilter extends Component
@@ -32,6 +33,11 @@ class CatFilter extends Component
         $this->list_origins = Origin::pluck('name', 'id');
         $this->list_shapes = Shape::pluck('name','id');
         $this->list_styles = Style::pluck('name','id');
+
+        // Lấy ra giá sản phẩm thấp nhất
+        $this->min_price = Version::min('price');
+        // Lấy ra giá sản phẩm cao nhất
+        $this->max_price = Version::max('price');
     }
 
     public function render()

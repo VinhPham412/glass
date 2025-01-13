@@ -151,31 +151,6 @@ class ProductResource extends Resource
                 Forms\Components\Repeater::make('versions')
                     ->label('Phiên bản')
                     ->schema([
-//                        Forms\Components\FileUpload::make('images')
-//                            ->label('Ảnh phiên bản')
-//                            ->image()
-//                            ->multiple()
-//                            ->maxFiles(5) // Giảm số lượng file tối đa để tránh quá tải
-//                            ->disk('public')
-//                            ->directory('uploads/')
-//                            ->deleteUploadedFileUsing(function ($file) {
-//                                Storage::disk('public')->delete($file);
-//                            })
-//                            ->imagePreviewHeight('100')
-//                            ->loadingIndicatorPosition('left')
-//                            ->panelAspectRatio('16:9')
-//                            ->panelLayout('grid')
-//                            ->imageResizeMode('cover')
-//                            ->imageResizeTargetWidth('100')
-//                            ->imageResizeTargetHeight('100')
-//                            ->imagePreviewHeight('100')
-//                            ->removeUploadedFileButtonPosition('top-right')
-//                            ->uploadButtonPosition('left')
-//                            ->uploadProgressIndicatorPosition('bottom')
-//                            ->maxSize(5120) // 5MB
-//                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
-//                            ->helperText('Tải lên tối đa 5 ảnh. Mỗi ảnh không quá 5MB.')
-//                            ->columnSpan('1'),
                         Forms\Components\Repeater::make('images')
                             ->label('Ảnh phiên bản')
                             ->helperText('Mỗi ảnh không quá 5MB.')
@@ -215,13 +190,13 @@ class ProductResource extends Resource
                             ->relationship()
                             ->grid(4),
                         Forms\Components\TextInput::make('price')
-                            ->label('Giá')
+                            ->label('Giá (vnd)')
                             ->required()
                             ->numeric()
                             ->step(1000)
                             ->inputMode('decimal')
                             ->mask(RawJs::make('$money($input)'))
-                            ->prefix('vnd')
+//                            ->prefix('vnd')
                             ->stripCharacters(','),
                         Forms\Components\TextInput::make('stock')
                             ->label('Tồn kho')
@@ -256,6 +231,8 @@ class ProductResource extends Resource
                                 'Xanh lục' => 'Xanh lục',
                                 'Xanh đen' => 'Xanh đen',
                             ])
+                            ->searchable()
+                            ->placeholder('chọn màu')
                             ->required(),
                     ])
                     ->columns([
