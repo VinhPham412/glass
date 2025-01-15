@@ -39,6 +39,13 @@
                     @include('partials.cat-filter.list_product',$product)
                 @endforeach
             </div>
+            @if ($tong_mat_kinh > $products->count())
+                <div x-data x-intersect="$wire.loadMore()"  class="flex justify-center items-center py-6">
+                    <p wire:loading wire:target="loadMore" class="hidden">
+                        Đang tải thêm sản phẩm...
+                    </p>
+                </div>
+            @endif
         </main>
     </div>
 </div>

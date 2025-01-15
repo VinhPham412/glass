@@ -37,7 +37,7 @@
 		public $tong_mat_kinh = 0;
 		public $cat_selected = [];
 		public $sort = "latest";
-		public $product_on_page ;
+		public $product_on_page;
 		public $on_page;
 		
 		public function mount() {
@@ -68,18 +68,48 @@
 			$this->render();
 		}
 		
-		public function updatingSort()
-		{
+		public function updatingSort() {
 			$this->on_page = $this->product_on_page;
 			$this->render();
 		}
 		
-		public function loadMore()
-		{
+		public function updatingList_cats_selected() {
+			$this->on_page = $this->product_on_page;
+		}
+		
+		public function updatingList_colors_selected() {
+			$this->on_page = $this->product_on_page;
+		}
+		
+		public function updatingList_sizes_selected() {
+			$this->on_page = $this->product_on_page;
+		}
+		
+		public function updatingList_brands_selected() {
+			$this->on_page = $this->product_on_page;
+		}
+		
+		public function updatingList_materials_selected() {
+			$this->on_page = $this->product_on_page;
+		}
+		
+		public function updatingList_origins_selected() {
+			$this->on_page = $this->product_on_page;
+		}
+		
+		public function updatingList_styles_selected() {
+			$this->on_page = $this->product_on_page;
+		}
+		
+		public function updatingList_shapes_selected() {
+			$this->on_page = $this->product_on_page;
+		}
+		
+		public function loadMore() {
 			$this->on_page += $this->product_on_page;
 		}
 		
-		public function clearfilter(){
+		public function clearfilter() {
 			$this->search = '';
 			$this->list_brands_selected = [];
 			$this->list_materials_selected = [];
@@ -170,8 +200,10 @@
 			}
 			
 			// Lấy kết quả
+			$this->tong_mat_kinh = $query->get()->count();
+			$query = $query->take($this->on_page);
 			$this->products = $query->get();
-			$this->tong_mat_kinh = $this->products->count();
+			
 			
 			return view('livewire.cat-filter');
 			

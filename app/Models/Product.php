@@ -58,6 +58,16 @@ class Product extends Model
     {
         return $this->hasMany(ReviewPro::class);
     }
-
+	
+	public function getFirstImage()
+	{
+		return $this->versions()
+			->whereHas('images') // Chỉ lấy các version có ảnh
+			->with(['images' => function ($query) {
+				$query->orderBy('id', 'asc'); // Sắp xếp ảnh theo thứ tự
+			}])
+			->orderBy('id', 'asc')
+			->first()?->images->first()?->link;
+	}
     
 }

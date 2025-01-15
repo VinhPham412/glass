@@ -3,10 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Livewire\ProductOverview;
 
 class ShopController extends Controller
 {
+	public $product;
+	public $product_id;
+	public function mount($product_id){
+		$this->product = Product::find($product_id);
+	}
     public function index()
     {
         return view('main.store_front');
@@ -16,11 +23,12 @@ class ShopController extends Controller
     {
         return view('main.catfilter');
     }
-
-    public function product_overview($id)
-    {
-        return view('main.product_overview');
-    }
+	
+	public function product_overview($id){
+		return view('main.product_overview',[
+			'product_id' => $id
+		]);
+	}
 
     public function test()
     {
