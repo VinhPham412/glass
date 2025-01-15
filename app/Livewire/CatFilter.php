@@ -72,7 +72,10 @@
 			$this->on_page = $this->product_on_page;
 			$this->render();
 		}
-		
+		public function updatingSelected_price() {
+			$this->on_page = $this->product_on_page;
+			$this->render();
+		}
 		public function updatingList_cats_selected() {
 			$this->on_page = $this->product_on_page;
 		}

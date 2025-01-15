@@ -11,6 +11,8 @@ php artisan icons:cache
 php artisan filament:cache-components  
 ```
 
+>php artisan filament:clear-cached-components
+
 # Clone dự án vào cơ sở dữ liệu
 * Dùng tinker shell
 * `php artisan tinker`
@@ -42,3 +44,10 @@ class GlassSeeder extends Seeder
 * `$this->call(GlassSeeder::class);`
 * Khởi chạy bằng lệnh
 * `php artisan migrate:refresh --seed`
+
+# Dùng Cookie để thay model giỏ hàng
+* Khi người dùng vừa truy cập thì lấy ra id thiết bị
+* Lấy id thiết bị nảy làm unique của người ( Đặc điểm nhận diện - ID)
+* Khi thiết bị chưa có thông tin gì => Tạo ra giỏ hàng rỗng 
+* Khi nó thêm hàng vào giỏ hàng => Thì thêm vào một card item
+* Khi truy cập thì load cái thông tin giỏ hàng này

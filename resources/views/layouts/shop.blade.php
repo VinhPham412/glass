@@ -69,10 +69,12 @@
         @yield('content')
     </main>
 
+
 @include('component.shop.footer')
 @include('component.shop.speedial')
 
 
+@livewire('notifications')
 @filamentScripts
 @vite('resources/js/app.js')
 </body>

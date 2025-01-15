@@ -247,24 +247,24 @@ class ProductResource extends Resource
                     ->relationship()
                     ->collapsed()
                     ->reorderable()
-	                ->reactive()
-	                ->afterStateUpdated(function (callable $get, callable $set, $state) {
-		                $versions = collect($get('versions'));
-		                $duplicates = $versions->map(function ($version) {
-			                return "{$version['size']}_{$version['color']}";
-		                })->duplicates();
-		                
-		                if ($duplicates->isNotEmpty()) {
-			                Notification::make()
-				                ->title('Lỗi')
-				                ->body('Không thể thêm các phiên bản có cùng màu sắc và kích thước.')
-				                ->danger()
-				                ->send();
-			                
-			                // Reset lại trạng thái nếu có trùng
-			                $set('versions', $versions->unique());
-		                }
-	                })
+//	                ->reactive()
+//	                ->afterStateUpdated(function (callable $get, callable $set, $state) {
+//		                $versions = collect($get('versions'));
+//		                $duplicates = $versions->map(function ($version) {
+//			                return "{$version['size']}_{$version['color']}";
+//		                })->duplicates();
+//
+//		                if ($duplicates->isNotEmpty()) {
+//			                Notification::make()
+//				                ->title('Lỗi')
+//				                ->body('Không thể thêm các phiên bản có cùng màu sắc và kích thước.')
+//				                ->danger()
+//				                ->send();
+//
+//			                // Reset lại trạng thái nếu có trùng
+//			                $set('versions', $versions->unique());
+//		                }
+//	                })
                 ,
                 CustomTagsInput::make('cats')
                     ->label('Danh mục')

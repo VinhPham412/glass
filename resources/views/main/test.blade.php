@@ -1,14 +1,17 @@
 @extends('layouts.shop')
 
 @section('content')
-    @include('component.test.hero')
-
-    @include('component.test.cat')
-
-    @include('component.test.fqa')
-
-    @include('component.test.icon')
+    @php
+        $list_brands = \App\Models\Brand::all();
+    @endphp
 
 
+    <ui>
+        @foreach($list_brands as $brand)
+            <li>
+                {{$brand->name}}
+            </li>
+        @endforeach
+    </ui>
 
 @endsection
