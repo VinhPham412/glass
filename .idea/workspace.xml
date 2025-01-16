@@ -6,43 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9f6c1f6d-cdcd-4067-bcef-35f6da3657e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Filament/Resources/ProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Filament/Resources/ProductResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Livewire/CatFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Livewire/CatFilter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Livewire/Navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Livewire/Navbar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Livewire/ProductOverview.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Livewire/ProductOverview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/component/shop/speedial.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/shop/speedial.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/shop.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/product-overview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/product-overview.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/main/test.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/test.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/pint/builds/pint" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/pint/builds/pint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/sail/bin/sail" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/sail/bin/sail" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/sail/runtimes/8.0/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/sail/runtimes/8.0/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/sail/runtimes/8.1/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/sail/runtimes/8.1/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/sail/runtimes/8.2/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/sail/runtimes/8.2/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/sail/runtimes/8.3/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/sail/runtimes/8.3/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/sail/runtimes/8.4/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/sail/runtimes/8.4/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/laravel/sail/src/Console/Concerns/InteractsWithDockerComposeServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/laravel/sail/src/Console/Concerns/InteractsWithDockerComposeServices.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/phpunit/ChangeLog-10.5.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpunit/phpunit/ChangeLog-10.5.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/phpunit/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpunit/phpunit/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/phpunit/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpunit/phpunit/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Event/Emitter/DispatchingEmitter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Event/Emitter/DispatchingEmitter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Event/Emitter/Emitter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Event/Emitter/Emitter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Event/Facade.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Event/Facade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Framework/TestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Framework/TestCase.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Framework/TestSuite.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Framework/TestSuite.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Logging/JUnit/JunitXmlLogger.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Logging/JUnit/JunitXmlLogger.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Runner/TestResult/Collector.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Runner/TestResult/Collector.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Runner/TestResult/TestResult.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Runner/TestResult/TestResult.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Runner/Version.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/Runner/Version.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/TextUI/Output/Default/ResultPrinter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/phpunit/phpunit/src/TextUI/Output/Default/ResultPrinter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar/drawer_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/drawer_cart.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,28 +205,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/Laravel/thietbiytemientay",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Laravel/thietbiytemientay&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="QodanaReportsService">
     <option name="descriptions">
       <ReportDescription localRun="true" path="C:\Users\VTOS\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="28694eb8-0832-4cad-a39e-ad7afba09721" reportId="Glass/qodana/2025-01-04" />
@@ -315,6 +282,7 @@
       <workItem from="1736807119609" duration="36193000" />
       <workItem from="1736902150423" duration="24523000" />
       <workItem from="1736942083809" duration="13049000" />
+      <workItem from="1736983982843" duration="13083000" />
     </task>
     <servers />
   </component>

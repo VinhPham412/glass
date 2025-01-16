@@ -45,7 +45,7 @@
 				return;
 			}
 			$this->loading_add_to_cart = true;
-			
+			$this->cart = json_decode(Cookie::get('cart'), true)?: [];
 			// Nếu version_id chưa có trong cart thì thêm một dòng vào và có số là 1
 			if (!isset($this->cart[$version_id])) {
                 $this->cart[$version_id] = 1;
