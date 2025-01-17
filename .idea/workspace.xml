@@ -5,9 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f6c1f6d-cdcd-4067-bcef-35f6da3657e8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Filament/Resources/CustomerResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Filament/Resources/CustomerResource.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Livewire/Navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Livewire/Navbar.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Livewire/ProductOverview.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Livewire/ProductOverview.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2024_06_07_223330_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_06_07_223330_create_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/component/test/hero.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/test/hero.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/main/test.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/test.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar/drawer_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/drawer_cart.blade.php" afterDir="false" />
     </list>
@@ -205,28 +212,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/Laravel/thietbiytemientay&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/VTOS/Downloads/netflix.png",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.sourceCode.PHP",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;,
-      &quot;mariadb&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql",
+      "mariadb"
     ]
   }
-}</component>
+}]]></component>
   <component name="QodanaReportsService">
     <option name="descriptions">
       <ReportDescription localRun="true" path="C:\Users\VTOS\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="28694eb8-0832-4cad-a39e-ad7afba09721" reportId="Glass/qodana/2025-01-04" />
@@ -282,7 +289,10 @@
       <workItem from="1736807119609" duration="36193000" />
       <workItem from="1736902150423" duration="24523000" />
       <workItem from="1736942083809" duration="13049000" />
-      <workItem from="1736983982843" duration="13083000" />
+      <workItem from="1736983982843" duration="13771000" />
+      <workItem from="1737020343416" duration="2148000" />
+      <workItem from="1737074387879" duration="13795000" />
+      <workItem from="1737122859483" duration="5110000" />
     </task>
     <servers />
   </component>

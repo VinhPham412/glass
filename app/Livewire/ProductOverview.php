@@ -4,6 +4,7 @@
 	
 	use App\Models\Product;
 	use Illuminate\Support\Facades\Cookie;
+	use Livewire\Attributes\On;
 	use Livewire\Component;
 	use Filament\Notifications\Notification;
 	
@@ -63,6 +64,11 @@
 				->send();
 			
 			$this->loading_add_to_cart = false;
+		}
+		
+		#[On('order_success')]
+		public function order_success() {
+			$this->render();
 		}
 		
 		public function render() {

@@ -4,7 +4,9 @@
 @endphp
 
 <div id="drawer-cart"
-     class="fixed top-0 right-0 z-50 h-screen p-4 overflow-y-auto transition-transform translate-x-full bg-white w-[90%] md:w-96 dark:bg-gray-800"
+     class="fixed top-0 right-0 z-50 h-screen p-4 overflow-y-auto transition-transform  bg-white w-[90%] md:w-96 dark:bg-gray-800
+     @if(!$expand_drawer) translate-x-full @endif
+     "
      tabindex="-1" aria-labelledby="drawer-right-label">
     <h5 id="drawer-right-label"
         class="inline-flex items-center mb-4 text-lg font-semibold text-gray-700 dark:text-gray-300">
@@ -18,7 +20,7 @@
     </button>
     <div class="py-2 max-h-[calc(100vh-500px)] overflow-y-auto">
         <ul class="space-y-2">
-            @foreach($cart as $version_id => $cart_item_quantity)
+            @forelse($cart as $version_id => $cart_item_quantity)
                 @php
                     $version = \App\Models\Version::find($version_id);
 					$tmp_price += $version->price * $cart_item_quantity;
@@ -68,7 +70,10 @@
                         </p>
                     </div>
                 </li>
-            @endforeach
+
+            @empty
+                <p class="text-center text-gray-500 dark:text-gray-400">Không có sản phẩm nào</p>
+            @endforelse
         </ul>
     </div>
 
@@ -123,13 +128,14 @@
         </div>
 
         <div class="mb-3">
-            <select id="payment-method" class="w-full p-2 text-sm bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+            <select wire:model="payment"
+                    id="payment-method" class="w-full p-2 text-sm bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
                 <option value="cod">Thanh toán khi nhận hàng (COD)</option>
                 <option value="momo">MOMO</option>
             </select>
         </div>
 
-        <button wire:click="dathang"
+        <button wire:click="dat_hang()"
                 class="w-full py-2.5 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 dark:bg-blue-700 dark:hover:bg-blue-800">
             <i class="fas fa-credit-card mr-2"></i>Đặt hàng
         </button>

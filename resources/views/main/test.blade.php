@@ -1,5 +1,5 @@
 @extends('layouts.shop')
 
 @section('content')
-    <livewire:test>
+    @include("component.test.hero")
 @endsection
