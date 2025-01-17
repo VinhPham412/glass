@@ -14,7 +14,10 @@
     <div class="flex justify-between items-center mb-6">
         <h2
                 class="text-lg font-semibold text-gray-800 dark:text-white cursor-pointer">Bộ lọc</h2>
-        <button id="clearFilters" class="text-sm text-red-500 hover:underline">Xóa tất cả</button>
+        <button wire:click="clearFilter()"
+                id="clearFilters" class="text-sm text-red-500 hover:underline">
+            Xóa tất cả
+        </button>
     </div>
 
     <!-- Search -->

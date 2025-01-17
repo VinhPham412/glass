@@ -8,6 +8,7 @@ use App\Models\Order;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
+use Filament\Support\RawJs;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -16,8 +17,8 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class OrderResource extends Resource
 {
     protected static ?string $model = Order::class;
-	
-	protected static ?string $label = "Đơn hàng";
+
+    protected static ?string $label = "Đơn hàng";
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
 
@@ -25,7 +26,68 @@ class OrderResource extends Resource
     {
         return $form
             ->schema([
-                //
+                Forms\Components\Select::make('customer_id')
+                    ->relationship('customer', 'name')
+                    ->label('Khách hàng')
+                    ->searchable()
+                    ->required()
+                    ->disabled()
+                ,
+                Forms\Components\Select::make('status')
+                    ->options([
+                        'pending' => 'Đang chờ',
+                        'done' => 'Đã xong',
+                        'cancel' => 'Đã hủy',
+                    ])
+                    ->label('Trạng thái đơn hàng')
+                    ->required()
+                    ->disabled(function ($record) {
+                        return $record && in_array($record->status, ['done', 'cancel']);
+                    })
+                    ->reactive()
+                    ->afterStateUpdated(function ($state, callable $set) {
+                        if (in_array($state, ['done', 'cancel'])) {
+                            $set('status', $state);
+                        }
+                    }),
+                Forms\Components\Repeater::make('orderItems')
+                    ->label('Sản phẩm trong đơn hàng')
+                    ->columnSpanFull()
+                    ->cloneable()
+                    ->reorderableWithDragAndDrop()
+                    ->reorderableWithButtons()
+                    ->relationship()
+                    ->collapsed()
+                    ->reorderable()
+                    ->columns(5)
+                    ->schema([
+                        Forms\Components\FileUpload::make('image')
+                            ->label('ảnh'),
+                        Forms\Components\Select::make('version.color')
+                            ->relationship('version', 'color')
+                            ->label('Màu')
+                            ->disabled(),
+                        Forms\Components\Select::make('version.size')
+                            ->relationship('version', 'size')
+                            ->label('Kích thước')
+                            ->disabled(),
+                        Forms\Components\TextInput::make('quantity')
+                            ->label('Số lượng')
+                            ->required()
+                            ->minValue(1)
+                            ->numeric(),
+                        Forms\Components\TextInput::make('price')
+                            ->label('Giá (vnd)')
+                            ->required()
+                            ->numeric()
+                            ->step(1000)
+                            ->inputMode('decimal')
+                            ->mask(RawJs::make('$money($input)'))
+                            ->stripCharacters(',')
+                            ->disabled()
+                        ,
+                    ])
+
             ]);
     }
 
@@ -34,20 +96,40 @@ class OrderResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('customer.name')
-	                ->label('Khách hàng')
-	                ->sortable(),
+                    ->label('Khách hàng')
+                    ->sortable(),
                 Tables\Columns\TextColumn::make('status')
-	              ->label('Trạng thái')
-	                ->formatStateUsing(function (string $state): string {
-		                return match ($state) {
-			                'pending' => 'Đang chờ',
-			                'done' => 'Đã xong',
-			                'cancel' => 'Đã hủy',
-			                default => $state,
-		                };
-	                })
-             ->sortable()
-	            
+                    ->label('Trạng thái')
+                    ->formatStateUsing(function (string $state): string {
+                        return match ($state) {
+                            'pending' => 'Đang chờ',
+                            'done' => 'Đã xong',
+                            'cancel' => 'Đã hủy',
+                            default => $state,
+                        };
+                    })
+                    ->sortable()
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('order_items_count')
+                    ->label('Sản phẩm khác nhau')
+                    ->counts('orderItems'),
+                Tables\Columns\TextColumn::make('order_items_sum_quantity')
+                    ->label('Tổng sản phẩm đặt')
+                    ->sum('orderItems', 'quantity'),
+                Tables\Columns\TextColumn::make('order_items_sum_price')
+                    ->label('Tổng tiền')
+                    ->formatStateUsing(function (string $state): string {
+                        return number_format($state, 0, '.', ',') . 'đ';
+                    })
+                    ->sum('orderItems', 'price'),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label('Thời gian tạo')
+                    ->formatStateUsing(function (string $state): string {
+                        return date('d-m-Y H:i', strtotime($state));
+                    })
+                    ->sortable()
+
+
             ])
             ->filters([
                 //
@@ -77,9 +159,9 @@ class OrderResource extends Resource
             'edit' => Pages\EditOrder::route('/{record}/edit'),
         ];
     }
-	
-	public static function getNavigationBadge(): ?string
-	{
-		return static::getModel()::count();
-	}
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
 }

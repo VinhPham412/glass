@@ -76,7 +76,7 @@
 			$this->on_page = $this->product_on_page;
 			$this->render();
 		}
-		public function updatingList_cats_selected() {
+		public function updatingCat_selected() {
 			$this->on_page = $this->product_on_page;
 		}
 		
@@ -112,16 +112,17 @@
 			$this->on_page += $this->product_on_page;
 		}
 		
-		public function clearfilter() {
+		public function clearFilter() {
 			$this->search = '';
-			$this->list_brands_selected = [];
-			$this->list_materials_selected = [];
-			$this->list_origins_selected = [];
-			$this->list_styles_selected = [];
-			$this->list_shapes_selected = [];
-			$this->list_colors_selected = [];
-			$this->list_sizes_selected = [];
-			$this->selected_price = $this->max_price;
+			$this->cat_selected = [];
+            $this->selected_price = $this->max_price;
+            $this->list_colors_selected = [];
+            $this->list_sizes_selected = [];
+            $this->list_brands_selected = [];
+            $this->list_materials_selected = [];
+            $this->list_origins_selected = [];
+            $this->list_styles_selected = [];
+            $this->list_shapes_selected = [];
 			
 			$this->on_page = $this->product_on_page;
 		}
