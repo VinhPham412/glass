@@ -23,4 +23,16 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+	
+	public function versions()
+	{
+		return $this->hasManyThrough(
+			Version::class,        // Model Version
+			OrderItem::class,      // Model trung gian
+			'order_id',            // Khóa ngoại ở OrderItem tham chiếu tới Order
+			'id',                  // Khóa chính trong Version
+			'id',                  // Khóa chính trong Order
+			'version_id'           // Khóa ngoại ở OrderItem tham chiếu tới Version
+		);
+	}
 }
