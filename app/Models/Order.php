@@ -35,4 +35,12 @@ class Order extends Model
 			'version_id'           // Khóa ngoại ở OrderItem tham chiếu tới Version
 		);
 	}
+	
+	public function total_price_order(){
+		$sum = 0;
+		foreach($this->orderItems as $item){
+			$sum+= $item->price*$item->quantity;
+		}
+		return $sum;
+	}
 }

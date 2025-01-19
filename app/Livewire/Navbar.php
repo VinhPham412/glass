@@ -26,6 +26,8 @@ class Navbar extends Component
     public $address_user = "";
     public $amount_cart = 0;
     public $payment = 'cod';
+	public $list_order;
+	public $customer;
 
     public function mount()
     {
@@ -48,6 +50,13 @@ class Navbar extends Component
         $this->email_user = isset($this->user['email']) ? $this->user['email'] : "";
         $this->phone_user = isset($this->user['phone']) ? $this->user['phone'] : "";
         $this->address_user = isset($this->user['address']) ? $this->user['address'] : "";
+		
+		$this->customer = Customer::where('email', $this->email_user)->first();
+		if ($this->customer){
+			$this->list_order = Order::where('customer_id', $this->customer->id)->get();
+		}  else{
+			$this->list_order = null;
+		}
     }
 
     #[On('add_cart_success')]

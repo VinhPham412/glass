@@ -1,3 +1,4 @@
+<div>
 <div class="sticky top-0 z-40">
     <div>
         <!-- ========== HEADER ========== -->
@@ -223,4 +224,12 @@
 
     @include('partials.navbar.drawer_cart')
 
+</div>
+
+    <!-- Main modal tìm kiếm -->
+    @include('partials.navbar.modal_search');
+    <!-- Main modal đơn đanh đặt hàng -->
+    @include('partials.navbar.modal_order_user')
+    <!-- Main modal  info user-->
+    @include('partials.navbar.modal_info_user')
 </div>
