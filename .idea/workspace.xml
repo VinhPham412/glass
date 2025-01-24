@@ -6,11 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="9f6c1f6d-cdcd-4067-bcef-35f6da3657e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Filament/Resources/OrderResource/Pages/EditOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Filament/Resources/OrderResource/Pages/EditOrder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Livewire/Navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Livewire/Navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/shop.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/shop.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/navbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Filament/Resources/OrderResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Filament/Resources/OrderResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/Filament/DashboardPanelProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/Filament/DashboardPanelProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/product-overview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/product-overview.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,13 +212,13 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/VTOS/Downloads/netflix.png&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Node/Virtual-Glasses&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.PHP&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -228,11 +228,6 @@
     ]
   }
 }</component>
-  <component name="QodanaReportsService">
-    <option name="descriptions">
-      <ReportDescription localRun="true" path="C:\Users\VTOS\AppData\Local\Temp\qodana_output\qodana.sarif.json" reportGuid="28694eb8-0832-4cad-a39e-ad7afba09721" reportId="Glass/qodana/2025-01-04" />
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
@@ -290,7 +285,12 @@
       <workItem from="1737129067307" duration="7005000" />
       <workItem from="1737164880677" duration="3599000" />
       <workItem from="1737244452365" duration="18009000" />
-      <workItem from="1737278628409" duration="6394000" />
+      <workItem from="1737278628409" duration="7992000" />
+      <workItem from="1737346345898" duration="1668000" />
+      <workItem from="1737348069242" duration="3022000" />
+      <workItem from="1737358284027" duration="1261000" />
+      <workItem from="1737625266606" duration="1287000" />
+      <workItem from="1737710164673" duration="5585000" />
     </task>
     <servers />
   </component>

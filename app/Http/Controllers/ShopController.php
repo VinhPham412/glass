@@ -29,6 +29,12 @@ class ShopController extends Controller
 			'product_id' => $id
 		]);
 	}
+	
+	public function try_on($id){
+		return view('main.try_on.try_on',[
+			'product_id' => $id
+		]);
+	}
 
     public function test()
     {

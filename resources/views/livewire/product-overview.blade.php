@@ -40,7 +40,9 @@
             <div class="space-y-4">
                 <div class="mb-4">
                     <span class="bg-green-500 text-white text-sm px-3 py-1 rounded-full">Còn hàng</span>
+                    <a href="{{route('shop.try_on',$product->id)}}" target="_blank" class="bg-red-500 text-white text-sm px-3 py-1 rounded-full cursor-pointer">Thử kính</a>
                 </div>
+
                 <h1 class="text-xl sm:text-2xl lg:text-3xl font-bold mb-4">
                     {{ $product->name }}
                 </h1>

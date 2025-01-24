@@ -38,7 +38,7 @@
 						->options(['pending' => 'Đang chờ', 'done' => 'Đã xong', 'cancel' => 'Đã hủy',])
 						->label('Trạng thái đơn hàng')
 						->required()
-						,
+					,
 					Forms\Components\Repeater::make('orderItems')
 						->label('Sản phẩm trong đơn hàng')
 						->columnSpanFull()
@@ -134,7 +134,10 @@
 		}
 		
 		public static function getPages(): array {
-			return ['index' => Pages\ListOrders::route('/'), 'create' => Pages\CreateOrder::route('/create'), 'edit' => Pages\EditOrder::route('/{record}/edit'),];
+			return [
+				'index' => Pages\ListOrders::route('/'),
+				'create' => Pages\CreateOrder::route('/create'),
+				'edit' => Pages\EditOrder::route('/{record}/edit'),];
 		}
 		
 		public static function getNavigationBadge(): ?string {
