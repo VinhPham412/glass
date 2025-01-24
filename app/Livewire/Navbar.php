@@ -55,7 +55,7 @@ class Navbar extends Component
 		if ($this->customer){
 			$this->list_order = Order::where('customer_id', $this->customer->id)->get();
 		}  else{
-			$this->list_order = null;
+			$this->list_order = [];
 		}
     }
 

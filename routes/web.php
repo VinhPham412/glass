@@ -16,9 +16,4 @@
 	
 	Route::get('try_on/{id}', [ShopController::class, 'try_on'])->name('shop.try_on');
 	
-	Route::get('/test', [ShopController::class, 'test'])->name('shop.test');
-	
-	Route::get('/test_cam',function (){
-		return view('main.try_on.try_on');
-	});
 	

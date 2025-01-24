@@ -759,6 +759,7 @@ CREATE TABLE `products` (
                             `id` bigint(20) UNSIGNED NOT NULL,
                             `name` varchar(255) NOT NULL,
                             `description` text NOT NULL,
+                            `try_on` varchar(255) DEFAULT NULL,
                             `origin_id` bigint(20) UNSIGNED NOT NULL,
                             `material_id` bigint(20) UNSIGNED NOT NULL,
                             `style_id` bigint(20) UNSIGNED NOT NULL,

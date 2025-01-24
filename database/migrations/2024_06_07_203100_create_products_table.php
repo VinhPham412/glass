@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description');
+			$table->string('try_on')->nullable()->default("");
 
             $table->unsignedBigInteger('origin_id');
             $table->unsignedBigInteger('material_id');

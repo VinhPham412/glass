@@ -31,8 +31,9 @@ class ShopController extends Controller
 	}
 	
 	public function try_on($id){
-		return view('main.try_on.try_on',[
-			'product_id' => $id
+		$product = Product::find($id);
+		return view('main.try_on',[
+			'product' => $product
 		]);
 	}
 
