@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f6c1f6d-cdcd-4067-bcef-35f6da3657e8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/main/try_on.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Filament/Resources/ProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Filament/Resources/ProductResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShopController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Livewire/Navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Livewire/Navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2024_06_07_203100_create_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2024_06_07_203100_create_products_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/phpmyadmin/glass.sql" beforeDir="false" afterPath="$PROJECT_DIR$/database/phpmyadmin/glass.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/try_on/glasses/front.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/try_on/glasses/left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/try_on/glasses/right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/try_on/js/clmtrackr.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/try_on/js/three.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/try_on/js/utils.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/product-overview.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/product-overview.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/main/try_on/try_on.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/try_on.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/try_on.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,29 +202,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "E:/Node/Virtual-Glasses",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\PhpStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/Node/Virtual-Glasses&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\PhpStorm 2024.3.1.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql",
-      "mariadb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;,
+      &quot;mariadb&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Laravel\Glass\resources\views\main" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner configuration_file="$PROJECT_DIR$/phpunit.xml" scope="XML" use_alternative_configuration_file="true" />
@@ -303,7 +293,8 @@
       <workItem from="1737358284027" duration="1261000" />
       <workItem from="1737625266606" duration="1287000" />
       <workItem from="1737710164673" duration="5961000" />
-      <workItem from="1737734567394" duration="10554000" />
+      <workItem from="1737734567394" duration="11000000" />
+      <workItem from="1737775445741" duration="7934000" />
     </task>
     <servers />
   </component>
