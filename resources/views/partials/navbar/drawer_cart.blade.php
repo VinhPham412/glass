@@ -93,14 +93,14 @@
     <div class="mb-4 grid grid-cols-3 gap-4">
         <!-- QR code -->
         <img class="w-[7rem] mx-auto" alt="QR code"
-             src="https://img.vietqr.io/image/vietinbank-123456789-qr_only.jpg?amount={{$amount_cart}}&addInfo=chuyển khoản số tiền {{$amount_cart}}&accountName=VinhPham">
+             src="https://img.vietqr.io/image/vietinbank-104868956934-qr_only.jpg?amount={{$amount_cart}}&addInfo=chuyển khoản số tiền {{$amount_cart}}&accountName=VinhPham">
 
         <!-- Thông tin ngân hàng -->
         <div class="flex flex-col justify-center col-span-2">
             <p class="text-sm font-medium text-gray-900 dark:text-white">Ngân hàng: VietinBank</p>
             <p class="text-sm font-medium text-gray-900 dark:text-white">Chủ tk: VinhPham</p>
-            <p class="text-sm font-medium text-gray-900 dark:text-white">Số tk: 123456789</p>
-            <p class="text-sm font-medium text-gray-900 dark:text-white">Ghi chú: gửi số tiền {{$amount_cart}} vnd</p>
+            <p class="text-sm font-medium text-gray-900 dark:text-white">Số tk: 104868956934</p>
+            <p class="text-sm font-medium text-gray-900 dark:text-white">Ghi chú: gửi số tiền {{ number_format($amount_cart, 0, ',', '.') }} vnd</p>
         </div>
     </div>
 
