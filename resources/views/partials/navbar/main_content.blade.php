@@ -50,7 +50,7 @@
                                 <div class="py-1 md:px-1 space-y-0.5">
                                     @forelse($cats as $cat)
                                         <a class="py-1.5 md:px-2 flex items-center text-sm text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 dark:text-neutral-200 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
-                                           href="#">
+                                           href="{{route('shop.catfilter')}}?cat={{$cat->name}}">
                                             {{ $cat->name  }}
                                         </a>
                                     @empty
@@ -96,7 +96,7 @@
                                 <div class="py-1 md:px-1 space-y-0.5">
                                     @forelse($brands as $brand)
                                         <a class="py-1.5 md:px-2 flex items-center text-sm text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 dark:text-neutral-200 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
-                                           href="#">
+                                           href="{{route('shop.catfilter')}}?brand={{$brand->name}}">
                                             {{ $brand->name  }}
                                         </a>
                                     @empty

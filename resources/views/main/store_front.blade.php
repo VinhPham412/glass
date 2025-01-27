@@ -28,10 +28,9 @@
 
     @include('component.shop.timeline')
 
-    @include('component.shop.contact')
+    <livewire:contact-store-front />
 
     @include('component.shop.logo_section')
-
 
 
 @endsection

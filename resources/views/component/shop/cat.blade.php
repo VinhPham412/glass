@@ -20,7 +20,7 @@
             @foreach($cats as $cat)
                 <!-- Thẻ -->
                 <a class="group flex flex-col bg-white border shadow-sm rounded-xl hover:shadow-md focus:outline-none focus:shadow-md transition dark:bg-neutral-900 dark:border-neutral-800"
-                   href="#">
+                   href="{{route('shop.catfilter')}}?cat={{$cat->name}}">
                     <div class="p-4 md:p-5">
                         <div class="flex justify-between items-center gap-x-3">
                             <div class="grow">

@@ -39,6 +39,8 @@
 		public $sort = "latest";
 		public $product_on_page;
 		public $on_page;
+		public $get_cat = "";
+		public $get_brand = "";
 		
 		public function mount() {
 			$this->products = Product::all();
@@ -48,8 +50,14 @@
 			$this->list_origins = Origin::pluck('name', 'id');
 			$this->list_shapes = Shape::pluck('name', 'id');
 			$this->list_styles = Style::pluck('name', 'id');
-			$this->list_colors = Version::pluck('color', 'id')->unique()->values()->all();
-			$this->list_sizes = Version::pluck('size', 'id')->unique()->values()->all();
+			$this->list_colors = Version::pluck('color', 'id')
+				->unique()
+				->values()
+				->all();
+			$this->list_sizes = Version::pluck('size', 'id')
+				->unique()
+				->values()
+				->all();
 			
 			// Lấy ra giá sản phẩm thấp nhất
 			$this->min_price = Version::min('price');
@@ -60,6 +68,12 @@
 			
 			$this->product_on_page = 4;
 			$this->on_page = $this->product_on_page;
+			
+			$this->get_cat = request('cat', '');
+			$this->get_brand = request('brand', '');
+			
+			$this->cat_selected = $this->get_cat ? [$this->get_cat] : [];
+			$this->list_brands_selected = $this->get_brand ? [$this->get_brand] : [];
 			
 		}
 		
@@ -72,10 +86,12 @@
 			$this->on_page = $this->product_on_page;
 			$this->render();
 		}
+		
 		public function updatingSelected_price() {
 			$this->on_page = $this->product_on_page;
 			$this->render();
 		}
+		
 		public function updatingCat_selected() {
 			$this->on_page = $this->product_on_page;
 		}
@@ -115,21 +131,22 @@
 		public function clearFilter() {
 			$this->search = '';
 			$this->cat_selected = [];
-            $this->selected_price = $this->max_price;
-            $this->list_colors_selected = [];
-            $this->list_sizes_selected = [];
-            $this->list_brands_selected = [];
-            $this->list_materials_selected = [];
-            $this->list_origins_selected = [];
-            $this->list_styles_selected = [];
-            $this->list_shapes_selected = [];
+			$this->selected_price = $this->max_price;
+			$this->list_colors_selected = [];
+			$this->list_sizes_selected = [];
+			$this->list_brands_selected = [];
+			$this->list_materials_selected = [];
+			$this->list_origins_selected = [];
+			$this->list_styles_selected = [];
+			$this->list_shapes_selected = [];
 			
 			$this->on_page = $this->product_on_page;
 		}
 		
 		public function render() {
 			// Khởi tạo query
-			$query = Product::query()->where('name', 'like', '%' . $this->search . '%');
+			$query = Product::query()
+				->where('name', 'like', '%' . $this->search . '%');
 			
 			// Lọc theo danh mục (nhiều-nhiều)
 			if (!empty($this->cat_selected)) {
@@ -204,7 +221,9 @@
 			}
 			
 			// Lấy kết quả
-			$this->tong_mat_kinh = $query->get()->count();
+			$this->tong_mat_kinh = $query
+				->get()
+				->count();
 			$query = $query->take($this->on_page);
 			$this->products = $query->get();
 			

@@ -5,8 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9f6c1f6d-cdcd-4067-bcef-35f6da3657e8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Filament/Resources/ProductResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Filament/Resources/ProductResource.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Livewire/CatFilter.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Livewire/CatFilter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/mail.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/mail.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/component/shop/blog.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/shop/blog.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/component/shop/brand.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/shop/brand.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/component/shop/card_section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/shop/card_section.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/component/shop/cat.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/shop/cat.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/component/shop/cilent.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/shop/cilent.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/component/shop/galery.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/component/shop/galery.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/main/store_front.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/store_front.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/main/try_on.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/main/try_on.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/cat-filter/list_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/cat-filter/list_product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar/main_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/main_content.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -295,6 +308,7 @@
       <workItem from="1737710164673" duration="5961000" />
       <workItem from="1737734567394" duration="11000000" />
       <workItem from="1737775445741" duration="7934000" />
+      <workItem from="1737860818693" duration="14143000" />
     </task>
     <servers />
   </component>

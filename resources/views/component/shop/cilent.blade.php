@@ -11,19 +11,19 @@
     <!-- Lưới logo -->
     <div class="my-8 md:my-16 grid grid-cols-3 sm:flex sm:justify-center gap-6 sm:gap-x-12 lg:gap-x-20">
         <a class="shrink-0 transition hover:-translate-y-1" href="#">
-            <img src="path-to-brand-logo1.png" alt="Thương hiệu 1" class="size-6 md:size-10 mx-auto sm:mx-0">
+            <img src="https://robohash.org/logo1" alt="Thương hiệu 1" class="size-6 md:size-10 mx-auto sm:mx-0">
         </a>
         <a class="shrink-0 transition hover:-translate-y-1" href="#">
-            <img src="path-to-brand-logo2.png" alt="Thương hiệu 2" class="size-6 md:size-10 mx-auto sm:mx-0">
+            <img src="https://robohash.org/logo2" alt="Thương hiệu 2" class="size-6 md:size-10 mx-auto sm:mx-0">
         </a>
         <a class="shrink-0 transition hover:-translate-y-1" href="#">
-            <img src="path-to-brand-logo3.png" alt="Thương hiệu 3" class="size-6 md:size-10 mx-auto sm:mx-0">
+            <img src="https://robohash.org/logo3" alt="Thương hiệu 3" class="size-6 md:size-10 mx-auto sm:mx-0">
         </a>
         <a class="shrink-0 transition hover:-translate-y-1" href="#">
-            <img src="path-to-brand-logo4.png" alt="Thương hiệu 4" class="size-6 md:size-10 mx-auto sm:mx-0">
+            <img src="https://robohash.org/logo4" alt="Thương hiệu 4" class="size-6 md:size-10 mx-auto sm:mx-0">
         </a>
         <a class="shrink-0 transition hover:-translate-y-1" href="#">
-            <img src="path-to-brand-logo5.png" alt="Thương hiệu 5" class="size-6 md:size-10 mx-auto sm:mx-0">
+            <img src="https://robohash.org/logo5" alt="Thương hiệu 5" class="size-6 md:size-10 mx-auto sm:mx-0">
         </a>
     </div>
     <!-- Kết thúc Lưới logo -->

@@ -19,7 +19,7 @@
 <div class="relative bg-white dark:bg-gray-900 text-gray-800 dark:text-white shadow-lg rounded-xl p-4 hover:shadow-xl transition-shadow max-w-sm">
     <!-- Product Image with Overlay -->
     <div class="relative">
-        <a href="#" class="block">
+        <a href="{{route('shop.product_overview',$product->id)}}" class="block">
             <div class="h-48 bg-gray-200 dark:bg-gray-700 rounded-lg overflow-hidden">
                 <img src="{{ $product_image_url }}" alt="Product Image" class="h-full w-auto mx-auto">
             </div>
