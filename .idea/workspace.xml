@@ -6,11 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9f6c1f6d-cdcd-4067-bcef-35f6da3657e8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Filament/Resources/OrderResource/Widgets/StatsOverview.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Filament/Resources/OrderResource/Widgets/StatsOverview.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Livewire/Navbar.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Livewire/Navbar.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/email/contact-store-front.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/email/contact-store-front.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/navbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/navbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/partials/navbar/drawer_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/navbar/drawer_cart.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -299,7 +294,10 @@
       <workItem from="1737710164673" duration="5961000" />
       <workItem from="1737734567394" duration="11000000" />
       <workItem from="1737775445741" duration="7934000" />
-      <workItem from="1737860818693" duration="20566000" />
+      <workItem from="1737860818693" duration="21646000" />
+      <workItem from="1738115651010" duration="27000" />
+      <workItem from="1738139645413" duration="28000" />
+      <workItem from="1738139944206" duration="13000" />
     </task>
     <servers />
   </component>
