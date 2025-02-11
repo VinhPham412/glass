@@ -212,6 +212,8 @@
 			$order = new Order();
 			$order->customer_id = $customer_order->id;
 			$order->save();
+			$this->list_order = Order::where('customer_id', $customer_order->id)
+				->get();
 			
 			// Tạo chi tiết đơn hàng . cụ the là tạo ra cac order_item
 			foreach ($this->cart as $version_id => $quantity) {
@@ -240,17 +242,19 @@
 			// Vẫn mở drawer
 			$this->expand_drawer = true;
 			
-			// Gửi email thông báo đơn hàng đã được tạo thành công
+			$this->render();
 			
+			// Gửi email thông báo đơn hàng đã được tạo thành cônggit
 		}
 		
-		public function render() {
+		public function render(): \Illuminate\Contracts\View\Factory|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\View|\Illuminate\View\View|\Illuminate\Contracts\Foundation\Application {
 			$tmp_price = 0;
 			foreach ($this->cart as $version_id => $cart_item_quantity) {
 				$version = \App\Models\Version::find($version_id);
 				$tmp_price += $version->price * $cart_item_quantity;
 			}
 			$this->amount_cart = $tmp_price;
+			
 			
 			return view('livewire.navbar');
 		}

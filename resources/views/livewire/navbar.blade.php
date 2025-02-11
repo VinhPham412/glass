@@ -1,5 +1,5 @@
 <div>
-<div class="sticky top-0 z-40">
+<div class="sticky top-0 z-40" >
     <div>
         <!-- ========== HEADER ========== -->
         <header class="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-[48] w-full bg-white border-b text-sm py-0  dark:bg-neutral-800 dark:border-neutral-700">
@@ -234,6 +234,7 @@
     @include('partials.navbar.modal_search');
     <!-- Main modal đơn đanh đặt hàng -->
     @include('partials.navbar.modal_order_user')
+{{--    @livewire('model-order-user', ['list_order' => $list_order])--}}
     <!-- Main modal  info user-->
     @include('partials.navbar.modal_info_user')
 </div>

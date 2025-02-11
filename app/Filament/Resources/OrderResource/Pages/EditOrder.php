@@ -41,7 +41,7 @@
 					->send();
 				
 				$record->update($data);
-			}
+			}  else
 			
 			if ($old_status == "cancel" and ($new_status == "done" or $new_status == "pending")) {
 				$can_update = true;
@@ -72,6 +72,8 @@
 						->send();
 				}
 				
+			} else{
+				$record->update($data);
 			}
 			
 			return $record;

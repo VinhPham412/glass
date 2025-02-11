@@ -62,8 +62,8 @@
         <p class="text-2xl font-bold text-blue-600">
             {{ $priceDisplay }} VND
         </p>
-        <button class="bg-blue-600 text-white font-medium px-6 py-2 rounded-lg hover:bg-blue-700 transition w-full max-w-[200px]">
-            Thêm vào giỏ
-        </button>
+        <a href="{{route('shop.product_overview',$product->id)}}" class=" block bg-blue-600 text-white font-medium px-6 py-2 rounded-lg hover:bg-blue-700 transition w-full max-w-[200px]">
+            Xem sản phẩm
+        </a>
     </div>
 </div>

@@ -104,21 +104,25 @@
 					Tables\Columns\TextColumn::make('order_items_sum_quantity')
 						->label('Tổng sản phẩm đặt')
 						->sum('orderItems', 'quantity'),
-					Tables\Columns\TextColumn::make('order_items_sum_price')
+					Tables\Columns\TextColumn::make('order_total')
 						->label('Tổng tiền')
 						->formatStateUsing(function (string $state): string {
 							return number_format($state, 0, '.', ',') . 'đ';
 						})
-						->sum('orderItems', 'price'),
+						// GetstateUsing để đặt eeen thoải mái
+						->getStateUsing(function ($record): float {
+							return $record->orderItems->sum(function ($orderItem) {
+								return $orderItem->price * $orderItem->quantity;
+							});
+						}),
 					Tables\Columns\TextColumn::make('created_at')
 						->label('Thời gian tạo')
 						->formatStateUsing(function (string $state): string {
 							return date('d-m-Y H:i', strtotime($state));
 						})
 						->sortable()
-				
-				
 				])
+				->defaultSort('created_at', 'desc')
 				->filters([//
 				])
 				->actions([
