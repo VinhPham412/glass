@@ -40,12 +40,12 @@ class CustomerResource extends Resource
                 Forms\Components\TextInput::make('password')
                     ->label('Mật khẩu')
                     ->required(),
-                Forms\Components\TextInput::make('google_id')
-                    ->label('Google ID')
-                    ->required(),
-                Forms\Components\TextInput::make('facebook_id')
-                    ->label('Facebook ID')
-                    ->required(),
+//                Forms\Components\TextInput::make('google_id')
+//                    ->label('Google ID')
+//                    ->required(),
+//                Forms\Components\TextInput::make('facebook_id')
+//                    ->label('Facebook ID')
+//                    ->required(),
             ]);
     }
 
@@ -67,12 +67,12 @@ class CustomerResource extends Resource
                 Tables\Columns\TextColumn::make('address')
                     ->label('Địa chỉ')
                     ->sortable(),
-                Tables\Columns\TextColumn::make('google_id')
-                    ->label('Google ID')
-                    ->sortable(),
-                Tables\Columns\TextColumn::make('facebook_id')
-                    ->label('Facebook ID')
-                    ->sortable(),
+//                Tables\Columns\TextColumn::make('google_id')
+//                    ->label('Google ID')
+//                    ->sortable(),
+//                Tables\Columns\TextColumn::make('facebook_id')
+//                    ->label('Facebook ID')
+//                    ->sortable(),
             ])
             ->filters([
                 Tables\Filters\Filter::make('name')

@@ -159,25 +159,9 @@
         <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">Mô tả sản phẩm</h2>
         <div class="prose prose-lg max-w-none text-gray-600 dark:text-gray-300">
             <p>
-                iMac 24" là một máy tính all-in-one mạnh mẽ và đẹp mắt từ Apple. Với chip Apple M1, RAM 8GB và
-                SSD
-                256GB,
-                máy này mang lại hiệu suất ấn tượng cho mọi tác vụ từ công việc văn phòng đến chỉnh sửa ảnh và
-                video.
+                {!! $product->description !!}
             </p>
-            <ul class="list-disc pl-5 mt-4">
-                <li>Màn hình Retina 4.5K 24 inch sống động</li>
-                <li>Chip Apple M1 với CPU 8 lõi và GPU 7 lõi</li>
-                <li>8GB RAM thống nhất</li>
-                <li>SSD 256GB siêu nhanh</li>
-                <li>Camera FaceTime HD 1080p với ISP của M1</li>
-                <li>Hệ thống âm thanh sáu loa với woofer force-cancelling</li>
-                <li>Màu sắc tươi sáng và thiết kế mỏng ấn tượng</li>
-            </ul>
-            <p class="mt-4">
-                Với macOS mới nhất, iMac 24" mang đến trải nghiệm máy tính liền mạch và hiệu quả,
-                phù hợp cho cả công việc sáng tạo và giải trí hàng ngày.
-            </p>
+
         </div>
     </div>
 

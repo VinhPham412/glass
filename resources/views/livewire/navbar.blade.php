@@ -231,7 +231,7 @@
 </div>
 
     <!-- Main modal tìm kiếm -->
-    @include('partials.navbar.modal_search');
+    @include('partials.navbar.modal_search')
     <!-- Main modal đơn đanh đặt hàng -->
     @include('partials.navbar.modal_order_user')
 {{--    @livewire('model-order-user', ['list_order' => $list_order])--}}

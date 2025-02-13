@@ -30,7 +30,7 @@
 
     <livewire:contact-store-front />
 
-    @include('component.shop.logo_section')
+{{--    @include('component.shop.logo_section')--}}
 
 
 @endsection

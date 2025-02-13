@@ -18,6 +18,11 @@ class ShopController extends Controller
     {
         return view('main.store_front');
     }
+    public function post($post_id){
+        return view('main.post',[
+            'post_id' => $post_id
+        ]);
+    }
 
     public function catfilter()
     {

@@ -19,7 +19,7 @@ class ContactStoreFront extends Component
 		]);
 		
 //		Mail::to($this->email)->send(new \App\Mail\ContactStoreFront($this->emailContent, $this->email));
-		Mail::to('tranmanhhieu10@gmail.com')->send(new \App\Mail\ContactStoreFront($this->emailContent, $this->email));
+		Mail::to('vinhquang4122000@gmail.com')->send(new \App\Mail\ContactStoreFront($this->emailContent, $this->email));
 		
 		// Reset form fields
 		$this->reset(['email', 'emailContent']);

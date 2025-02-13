@@ -16,7 +16,7 @@
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         @foreach($posts as $post)
             <!-- Thẻ -->
-            <a class="group flex flex-col focus:outline-none" href="#">
+            <a class="group flex flex-col focus:outline-none" href="{{route('shop.post',$post->id)}}">
                 <div class="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
                     <img class="size-full absolute top-0 start-0 object-cover group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl"
                          src="{{ Storage::url($post->thumbnail) }}"

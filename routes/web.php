@@ -16,4 +16,4 @@
 	
 	Route::get('try_on/{id}', [ShopController::class, 'try_on'])->name('shop.try_on');
 	
-	
+	Route::get('post/{id}', [ShopController::class, 'post'])->name('shop.post');
