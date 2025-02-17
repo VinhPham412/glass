@@ -11,11 +11,12 @@
             display: none !important;
         }
     </style>
+    @filamentStyles
+    @vite('resources/css/app.css')
 </head>
 
-@filamentStyles
-@vite('resources/css/app.css')
-<body>
+
+<body class="antialiased">
 <livewire:navbar>
 
 
@@ -29,7 +30,8 @@
 
 
 @livewire('notifications')
-@filamentScripts
 @vite('resources/js/app.js')
+@filamentScripts
+
 </body>
 </html>

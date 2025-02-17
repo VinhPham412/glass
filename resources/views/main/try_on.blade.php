@@ -30,7 +30,7 @@
 
     // Load images for glasses
     const frontGlassImage = new Image();
-    frontGlassImage.src = "{{Storage::url($product->try_on)}}";
+    frontGlassImage.src = "{{config('app.asset_url')}}/storage/{{$product->try_on}}";
 
     function onResults(results) {
         canvasCtx.save();

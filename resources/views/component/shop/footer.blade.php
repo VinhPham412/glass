@@ -28,7 +28,7 @@
 
                 <div class="border-s border-neutral-700 ps-5 ms-5">
                     <p class="text-sm text-neutral-400">
-                        © 2025 Vinh Phạm
+                        © 2025 Hieubkav - All rights reserved
                     </p>
                 </div>
             </div>

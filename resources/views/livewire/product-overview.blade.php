@@ -4,7 +4,7 @@
             <!-- Product Images -->
             <div class="space-y-4">
                 <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 flex justify-center items-center">
-                    <img id="mainImage" src="{{ Storage::url($product->getFirstImage())}}"
+                    <img id="mainImage" src="{{config('app.asset_url')}}/storage/{{$product->getFirstImage()}}"
                          alt="Sản phẩm"
                          class="w-full h-auto max-h-96 object-contain rounded-lg">
                 </div>
@@ -26,10 +26,10 @@
                     @foreach($product->versions as $version)
                         @foreach($version->images as $image)
                             <div class="bg-gray-100 dark:bg-gray-800 rounded-lg p-2 hover:shadow-md transition flex-shrink-0">
-                                <img src="{{Storage::url($image->link)}}"
+                                <img src="{{config('app.asset_url')}}/storage/{{$image->link}}"
                                      alt="Thumbnail"
                                      class="w-20 h-20 sm:w-24 sm:h-24 object-cover rounded-lg thumbnail-image cursor-pointer"
-                                     data-src="{{Storage::url($image->link)}}">
+                                     data-src="{{config('app.asset_url')}}/storage/{{$image->link}}">
                             </div>
                         @endforeach
                     @endforeach
@@ -118,7 +118,7 @@
                                     ">
                                 <img src="{{
                                         $product->versions->where('color', $color)->first()->images->first()->link
-                                            ? Storage::url($product->versions->where('color', $color)->first()->images->first()->link)
+                                            ? config('app.asset_url')."/storage/".$product->versions->where('color', $color)->first()->images->first()->link
                                             : 'https://robohash.org/anh_rong' }}"
                                      alt="Đỏ" class="w-6 h-6 rounded-full">
                                 <span>{{$color}}</span>

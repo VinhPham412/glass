@@ -19,7 +19,7 @@
             <a class="group flex flex-col focus:outline-none" href="{{route('shop.post',$post->id)}}">
                 <div class="relative pt-[50%] sm:pt-[70%] rounded-xl overflow-hidden">
                     <img class="size-full absolute top-0 start-0 object-cover group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl"
-                         src="{{ Storage::url($post->thumbnail) }}"
+                         src="{{config('app.asset_url')}}/storage/{{$post->thumbnail}}"
                          alt="Hình ảnh Blog">
                 </div>
 

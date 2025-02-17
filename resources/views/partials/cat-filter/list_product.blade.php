@@ -1,6 +1,6 @@
 @php
     $product_image = $product->versions->flatMap->images->first()->link ?? null;
-    $product_image_url = $product_image ? env('APP_URL').'/storage/'.$product_image : 'https://robohash.org/empty';
+    $product_image_url = $product_image ? config('app.asset_url').'/storage/'.$product_image : 'https://robohash.org/empty';
 
     $promotions = $product->cats()
         ->with('promotion')
